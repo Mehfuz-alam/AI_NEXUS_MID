@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Stability AI – Frontend Clone</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Font -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Inter", sans-serif;
+      }
+      body {
+        background: #fff;
+        color: #111;
+      }
+
+      /* NAVBAR */
+      .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 22px 60px;
+      }
+      .logo {
+        font-size: 18px;
+        font-weight: 700;
+      }
+      .nav-links a {
+        margin: 0 14px;
+        text-decoration: none;
+        color: #111;
+        font-size: 14px;
+      }
+      .contact-btn {
+        background: #111;
+        color: #fff;
+        border: none;
+        padding: 10px 18px;
+        border-radius: 8px;
+        cursor: pointer;
+      }
+
+      /* HERO */
+      .hero {
+        text-align: center;
+        margin-top: 90px;
+      }
+      .hero h1 {
+        font-size: 48px;
+        font-weight: 700;
+        line-height: 1.2;
+      }
+      .hero p {
+        margin-top: 22px;
+        color: #555;
+        font-size: 16px;
+      }
+
+      /* TABS */
+      .tabs {
+        margin-top: 40px;
+      }
+      .tabs button {
+        padding: 8px 16px;
+        margin: 0 5px;
+        border-radius: 20px;
+        border: 1px solid #ddd;
+        background: #fff;
+        cursor: pointer;
+        font-size: 13px;
+      }
+      .tabs .active {
+        background: #111;
+        color: #fff;
+      }
+      .tabs .new::after {
+        content: "NEW";
+        background: #6c5ce7;
+        color: #fff;
+        font-size: 10px;
+        padding: 2px 6px;
+        margin-left: 6px;
+        border-radius: 10px;
+      }
+
+      /* CONTENT */
+      .content {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 70px;
+        padding: 100px 90px;
+        align-items: center;
+      }
+      .left h2 {
+        font-size: 32px;
+        margin-bottom: 20px;
+      }
+      .left p {
+        color: #555;
+        font-size: 15px;
+        line-height: 1.6;
+      }
+      .buttons {
+        margin-top: 30px;
+      }
+      .primary {
+        background: #111;
+        color: #fff;
+        border: none;
+        padding: 12px 18px;
+        border-radius: 10px;
+        margin-right: 12px;
+        cursor: pointer;
+      }
+      .secondary {
+        background: none;
+        border: none;
+        font-weight: 500;
+        cursor: pointer;
+      }
+
+      /* IMAGE GRID */
+      .right-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
+      }
+      .right-grid img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+        border-radius: 14px;
+      }
+
+      /* RESPONSIVE */
+      @media (max-width: 900px) {
+        .content {
+          grid-template-columns: 1fr;
+          padding: 60px 30px;
+        }
+        .hero h1 {
+          font-size: 36px;
+        }
+        .navbar {
+          padding: 20px 30px;
+        }
+
+
+      
+}
+
+        /* FOOTER */
+.footer{
+  border-top:1px solid #222;
+  padding:60px 90px 30px;
+  background:#0b0b0b;   /* professional black */
+  color:#ffffff;
+}
+.footer-top{
+  display:grid;
+  grid-template-columns:2fr 1fr 1fr 1fr;
+  gap:40px;
+}
+.footer-logo{
+  font-size:20px;
+  font-weight:700;
+  margin-bottom:14px;
+}
+.footer-desc{
+  font-size:14px;
+  color:#555;
+  line-height:1.6;
+  max-width:340px;
+}
+.footer-col h4{
+  font-size:14px;
+  font-weight:600;
+  margin-bottom:16px;
+}
+.footer-col a{
+  display:block;
+  text-decoration:none;
+  font-size:14px;
+  color:#555;
+  margin-bottom:10px;
+}
+.footer-col a:hover{
+  color:#111;
+}
+.footer-bottom{
+  margin-top:50px;
+  padding-top:20px;
+  border-top:1px solid #eee;
+  display:flex;
+  justify-content:space-between;
+  font-size:13px;
+  color:#777;
+}
+
+/* FOOTER RESPONSIVE */
+@media(max-width:900px){
+  .footer{
+    padding:50px 30px 20px;
+  }
+  .footer-top{
+    grid-template-columns:1fr;
+    gap:30px;
+  }
+  .footer-bottom{
+    flex-direction:column;
+    gap:10px;
+    text-align:center;
+  }}
+  /* PROFILE AVATAR */
+.profile {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  overflow: hidden;
+  cursor: pointer;
+  border: 2px solid #111;
+}
+
+.profile img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.profile:hover {
+  transform: scale(1.05);
+  transition: 0.2s ease;
+}
+    </style>
+  </head>
+
+  <body>
+    <header class="navbar">
+      <div class="logo">AI NEXUS</div>
+
+      <nav class="nav-links">
+        <a href="/home">Home</a>
+       
+        <a href="/contact">Contact</a>
+        <a href="/about">About</a>
+      </nav>
+
+      <div class="profile">
+  <img src="./assets/image4.png" alt="User Profile" />
+</div>
+    </header>
+
+    <section class="hero">
+      <h1>Unlocking Human Potential<br />With Generative AI.</h1>
+      <p>
+        An Integrated Multimodal AI System<br />
+        for creative image, text, speech generation.
+      </p>
+
+    </section>
+
+    <section style="padding: 40px 90px; text-align:center;">
+  <h2 style="font-size:28px; margin-bottom:20px;">Generate Image</h2>
+
+  <div style="max-width:600px; margin:auto;">
+    <input
+      id="promptInput"
+      type="text"
+      placeholder="Enter your image prompt..."
+      style="
+        width:100%;
+        padding:14px;
+        border-radius:10px;
+        border:1px solid #ddd;
+        font-size:15px;
+      "
+    />
+<select
+  id="modelSelect"
+  style="
+    width:100%;
+    padding:14px;
+    border-radius:10px;
+    border:1px solid #ddd;
+    font-size:15px;
+    margin-top:14px;
+  "
+>
+  <option value="butterflies">
+    MehfuzAlam/ddpm-butterflies-128
+  </option>
+
+  <option value="sdxl">
+    stabilityai/stable-diffusion-xl-base-1.0
+  </option>
+</select>
+
+    <button
+      onclick="generateImage()"
+      style="
+        margin-top:16px;
+        padding:12px 20px;
+        border:none;
+        background:#111;
+        color:#fff;
+        border-radius:10px;
+        cursor:pointer;
+      "
+    >
+      Generate Image
+    </button>
+  </div>
+
+  <div id="imageResult" style="margin-top:40px;"></div>
+</section>
+<!-- <script>
+const API_URL = "https://casemated-hazardously-elvera.ngrok-free.dev";
+
+async function generateImage() {
+  const promptInput = document.getElementById("promptInput");
+  const imageResult = document.getElementById("imageResult");
+  const prompt = promptInput.value.trim();
+
+  if (!prompt) {
+    alert("Please enter a prompt");
+    return;
+  }
+
+  imageResult.innerHTML = "<p>Generating image using GPU (Colab)...</p>";
+
+  try {
+    const res = await fetch(`${API_URL}/generate`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({ text: prompt })
+    });
+
+    if (!res.ok) {
+      throw new Error("Colab backend error");
+    }
+
+    const data = await res.json();
+
+    if (data.image) {
+      imageResult.innerHTML = `
+  <div style="
+    max-width:600px;
+    max-height:400px;
+    margin:20px auto;
+    overflow:hidden;
+    border-radius:14px;
+    box-shadow:0 10px 30px rgba(0,0,0,0.12);
+  ">
+    <img
+      src="data:image/png;base64,${data.image}"
+      style="
+        width:100%;
+        height:100%;
+        object-fit:contain;
+        background:#f6f6f6;
+      "
+    />
+  </div>
+`;
+
+    } else {
+      imageResult.innerHTML = "<p>Image generation failed.</p>";
+    }
+
+  } catch (err) {
+    console.error(err);
+    imageResult.innerHTML = "<p>❌ Colab backend not reachable.</p>";
+  }
+}
+</script> -->
+
+
+<script>
+const BACKENDS = {
+  butterflies: "https://subtrochanteric-unbelieving-lien.ngrok-free.dev",
+  sdxl: "https://casemated-hazardously-elvera.ngrok-free.dev"
+};
+
+function containsButterfly(text) {
+  return /\bbutterfly\b|\bbutterflies\b/i.test(text);
+}
+
+async function generateImage() {
+  const promptInput = document.getElementById("promptInput");
+  const modelSelect = document.getElementById("modelSelect");
+  const imageResult = document.getElementById("imageResult");
+
+  const prompt = promptInput.value.trim();
+  const selectedModel = modelSelect.value;
+  const modelName =
+    modelSelect.options[modelSelect.selectedIndex].text;
+
+  if (!prompt) {
+    alert("Please enter a prompt");
+    return;
+  }
+
+  /* 🦋 Butterfly model validation */
+  if (selectedModel === "butterflies" && !containsButterfly(prompt)) {
+    imageResult.innerHTML = `
+      <div style="
+        max-width:600px;
+        margin:20px auto;
+        padding:16px;
+        border-radius:10px;
+        background:#fff3f3;
+        color:#b00020;
+        border:1px solid #f5c2c2;
+        font-size:14px;
+      ">
+        ❌ <strong>Invalid prompt</strong><br/>
+        This model is trained <strong>only on butterfly images</strong>.<br/>
+        Please include the word <em>“butterfly”</em> or <em>“butterflies”</em> in your prompt.
+      </div>
+    `;
+    return;
+  }
+
+  const API_URL = BACKENDS[selectedModel];
+
+  imageResult.innerHTML = `
+    <p style="margin-top:20px;">
+      🎨 Generating image using <strong>${modelName}</strong>...
+    </p>
+  `;
+
+  try {
+    const res = await fetch(`${API_URL}/generate`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ text: prompt })
+    });
+
+    if (!res.ok) {
+      throw new Error("Backend error");
+    }
+
+    const data = await res.json();
+
+    if (data.image) {
+      imageResult.innerHTML = `
+        <div style="
+          max-width:700px;
+          margin:30px auto;
+          border-radius:14px;
+          box-shadow:0 10px 30px rgba(0,0,0,0.12);
+          background:#f6f6f6;
+          padding:14px;
+        ">
+          <img
+            src="data:image/png;base64,${data.image}"
+            style="
+              width:100%;
+              height:auto;
+              display:block;
+              object-fit:contain;
+              border-radius:10px;
+            "
+          />
+        </div>
+      `;
+    } else {
+      imageResult.innerHTML = "<p>❌ Image generation failed.</p>";
+    }
+
+  } catch (err) {
+    console.error(err);
+    imageResult.innerHTML = "<p>❌ Backend not reachable.</p>";
+  }
+}
+</script>
+
+
+    
+  </body>
+  <footer class="footer">
+
+  <div class="footer-top">
+    <div>
+      <div class="footer-logo">AI NEXUS</div>
+      <p class="footer-desc">
+        Building open-source generative AI models for creators,
+        developers, and enterprises worldwide.
+      </p>
+    </div>
+
+    <div class="footer-col">
+      <h4>Products</h4>
+      <a href="#">Image Generation</a>
+      <a href="#">Image Captioning</a>
+      <a href="#">AI News</a>
+  
+      <a href="#">Podcast Q&A</a>
+    </div>
+
+    <div class="footer-col">
+      <h4>Company</h4>
+      <a href="#">About</a>
+      <a href="#">Contacts</a>
+     
+    </div>
+
+    <div class="footer-col">
+      <h4>Social</h4>
+      <a href="#">Facebook</a>
+      <a href="#">Instagram</a>
+      <a href="#">Twitter</a>
+      <a href="#">GitHub</a>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <div>© 2026 AI NEXUS. All rights reserved.</div>
+    <!-- <div>Privacy · Terms · Security</div> -->
+  </div>
+
+</footer>
+</html>

@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Stability AI – Frontend Clone</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Font -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Inter", sans-serif;
+      }
+      body {
+        background: #fff;
+        color: #111;
+      }
+
+      /* NAVBAR */
+      .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 22px 60px;
+      }
+      .logo {
+        font-size: 18px;
+        font-weight: 700;
+      }
+      .nav-links a {
+        margin: 0 14px;
+        text-decoration: none;
+        color: #111;
+        font-size: 14px;
+      }
+      .contact-btn {
+        background: #111;
+        color: #fff;
+        border: none;
+        padding: 10px 18px;
+        border-radius: 8px;
+        cursor: pointer;
+      }
+
+      /* HERO */
+      .hero {
+        text-align: center;
+        margin-top: 90px;
+      }
+      .hero h1 {
+        font-size: 48px;
+        font-weight: 700;
+        line-height: 1.2;
+      }
+      .hero p {
+        margin-top: 22px;
+        color: #555;
+        font-size: 16px;
+      }
+
+      /* TABS */
+      .tabs {
+        margin-top: 40px;
+      }
+      .tabs button {
+        padding: 8px 16px;
+        margin: 0 5px;
+        border-radius: 20px;
+        border: 1px solid #ddd;
+        background: #fff;
+        cursor: pointer;
+        font-size: 13px;
+      }
+      .tabs .active {
+        background: #111;
+        color: #fff;
+      }
+      .tabs .new::after {
+        content: "NEW";
+        background: #6c5ce7;
+        color: #fff;
+        font-size: 10px;
+        padding: 2px 6px;
+        margin-left: 6px;
+        border-radius: 10px;
+      }
+
+      /* CONTENT */
+      .content {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 70px;
+        padding: 100px 90px;
+        align-items: center;
+      }
+      .left h2 {
+        font-size: 32px;
+        margin-bottom: 20px;
+      }
+      .left p {
+        color: #555;
+        font-size: 15px;
+        line-height: 1.6;
+      }
+      .buttons {
+        margin-top: 30px;
+      }
+      .primary {
+        background: #111;
+        color: #fff;
+        border: none;
+        padding: 12px 18px;
+        border-radius: 10px;
+        margin-right: 12px;
+        cursor: pointer;
+      }
+      .secondary {
+        background: none;
+        border: none;
+        font-weight: 500;
+        cursor: pointer;
+      }
+
+      /* IMAGE GRID */
+      .right-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
+      }
+      .right-grid img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+        border-radius: 14px;
+      }
+
+      /* RESPONSIVE */
+      @media (max-width: 900px) {
+        .content {
+          grid-template-columns: 1fr;
+          padding: 60px 30px;
+        }
+        .hero h1 {
+          font-size: 36px;
+        }
+        .navbar {
+          padding: 20px 30px;
+        }
+
+
+      
+}
+
+        /* FOOTER */
+.footer{
+  border-top:1px solid #222;
+  padding:60px 90px 30px;
+  background:#0b0b0b;   /* professional black */
+  color:#ffffff;
+}
+.footer-top{
+  display:grid;
+  grid-template-columns:2fr 1fr 1fr 1fr;
+  gap:40px;
+}
+.footer-logo{
+  font-size:20px;
+  font-weight:700;
+  margin-bottom:14px;
+}
+.footer-desc{
+  font-size:14px;
+  color:#555;
+  line-height:1.6;
+  max-width:340px;
+}
+.footer-col h4{
+  font-size:14px;
+  font-weight:600;
+  margin-bottom:16px;
+}
+.footer-col a{
+  display:block;
+  text-decoration:none;
+  font-size:14px;
+  color:#555;
+  margin-bottom:10px;
+}
+.footer-col a:hover{
+  color:#111;
+}
+.footer-bottom{
+  margin-top:50px;
+  padding-top:20px;
+  border-top:1px solid #eee;
+  display:flex;
+  justify-content:space-between;
+  font-size:13px;
+  color:#777;
+}
+
+/* FOOTER RESPONSIVE */
+@media(max-width:900px){
+  .footer{
+    padding:50px 30px 20px;
+  }
+  .footer-top{
+    grid-template-columns:1fr;
+    gap:30px;
+  }
+  .footer-bottom{
+    flex-direction:column;
+    gap:10px;
+    text-align:center;
+  }}
+  /* CONTACT SECTION */
+.contact-section {
+  padding: 120px 90px;
+  background: #fff;
+}
+
+.contact-wrapper {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 80px;
+  align-items: center;
+}
+
+/* LEFT */
+.contact-tag {
+  color: #ff7a18;
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.contact-left h2 {
+  font-size: 44px;
+  margin: 14px 0;
+}
+
+.contact-subtext {
+  color: #555;
+  font-size: 15px;
+  max-width: 480px;
+  line-height: 1.6;
+}
+
+.contact-form {
+  margin-top: 30px;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 14px 16px;
+  border-radius: 10px;
+  border: none;
+  background: #f6f6f6;
+  font-size: 14px;
+  margin-bottom: 16px;
+}
+
+.contact-form textarea {
+  min-height: 120px;
+  resize: none;
+}
+
+/* .checkbox {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 13px;
+  color: #555;
+} */
+/* CUSTOM CHECKBOX (IMAGE MATCH) */
+.custom-checkbox {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 13px;
+  color: #555;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.custom-checkbox input {
+  display: none;
+}
+
+/* Checkbox box */
+.checkmark {
+  width: 18px;
+  height: 18px;
+  border: 1.6px solid #cfcfcf;
+  border-radius: 4px;
+  background: #fff;
+  position: relative;
+  flex-shrink: 0;
+}
+
+/* Check icon */
+.custom-checkbox input:checked + .checkmark::after {
+  content: "";
+  position: absolute;
+  left: 4px;
+  top: 1px;
+  width: 6px;
+  height: 10px;
+  border: solid #111;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+/* Text */
+.checkbox-text a {
+  color: #111;
+  text-decoration: underline;
+}
+
+/* SUBMIT BUTTON */
+.submit-btn {
+  margin-top: 22px;
+  background: #111;
+  color: #fff;
+  border: none;
+  padding: 14px 22px;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  width: fit-content;
+}
+
+.submit-btn:hover {
+  background: #000;
+}
+
+
+.checkbox input {
+  accent-color: #111;
+  cursor: pointer;
+}
+
+/* SUBMIT BUTTON */
+.submit-btn {
+  margin-top: 20px;
+  background: #111;
+  color: #fff;
+  border: none;
+  padding: 14px 22px;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.submit-btn:hover {
+  background: #000;
+}
+
+.checkbox a {
+  color: #111;
+  text-decoration: underline;
+}
+
+/* RIGHT */
+.contact-right {
+  position: relative;
+}
+
+.image-box {
+  border-radius: 22px;
+  overflow: hidden;
+  background: #dfe9f7;
+}
+
+.image-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* INFO CARD */
+.info-card {
+  background: #fff;
+  border-radius: 18px;
+  padding: 22px;
+  margin-top: -60px;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.info-item {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 12px 0;
+}
+
+.icon {
+  width: 42px;
+  height: 42px;
+  background: #eef3ff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+}
+
+.info-item h4 {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.info-item p {
+  font-size: 13px;
+  color: #555;
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .contact-wrapper {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-section {
+    padding: 80px 30px;
+  }
+
+  .contact-left h2 {
+    font-size: 34px;
+  }
+}
+
+    </style>
+  </head>
+
+  <body>
+    <header class="navbar">
+      <div class="logo">AI NEXUS</div>
+
+      <nav class="nav-links">
+        <a href="/home">Home</a>
+        <!-- <a href="#">Applications</a>
+        <a href="#">Deployment</a> -->
+        <a href="/contact">Contact</a>
+        <a href="/about">About</a>
+      </nav>
+
+      <a href="sign_in.html"><button class="contact-btn">Login</button></a>
+    </header>
+
+    <section class="hero">
+      <h1>Get In Touch With Us For<br />More Information.</h1>
+      <p>
+        If You Need Help Or Have A Query, We Are Here For You.<br />
+        
+      </p>
+
+    
+    </section>
+    <section class="contact-section">
+  <div class="contact-wrapper">
+    
+    <!-- LEFT FORM -->
+    <div class="contact-left">
+      <span class="contact-tag">Get in Touch</span>
+      <h2>Let's Chat, Reach Out to Us</h2>
+      <p class="contact-subtext">
+        Have questions or feedback? We're here to help. Send us a
+        message, and we'll respond within 24 hours.
+      </p>
+
+      <form class="contact-form">
+        <div class="form-row">
+          <input type="text" placeholder="First name" />
+          <input type="text" placeholder="Last name" />
+        </div>
+
+        <input type="email" placeholder="Email address" />
+        <textarea placeholder="Leave us message"></textarea>
+
+        <label class="custom-checkbox">
+  <input type="checkbox" />
+  <span class="checkmark"></span>
+  <span class="checkbox-text">
+    I agree to our friendly <a href="#">privacy policy</a>
+  </span>
+</label>
+
+<button type="submit" class="submit-btn">Send Message</button>
+
+      </form>
+    </div>
+
+    <!-- RIGHT SIDE -->
+    <div class="contact-right">
+      <div class="image-box">
+        <img src="./assets/image7.png" alt="contact" />
+      </div>
+      <br><br><br><br>
+      <div class="info-card">
+        <div class="info-item">
+          <div class="icon">✉️</div>
+          <div>
+            <h4>Email</h4>
+            <p>ainexus@.com</p>
+          </div>
+        </div>
+
+        <div class="info-item">
+          <div class="icon">📞</div>
+          <div>
+            <h4>Phone</h4>
+            <p>(+977) 9805454789</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+    
+  </body>
+  <footer class="footer">
+
+  <div class="footer-top">
+    <div>
+      <div class="footer-logo">AI NEXUS</div>
+      <p class="footer-desc">
+        Building open-source generative AI models for creators,
+        developers, and enterprises worldwide.
+      </p>
+    </div>
+
+    <div class="footer-col">
+      <h4>Products</h4>
+      <a href="#">Image Generation</a>
+      <a href="#">Image Captioning</a>
+      <a href="#">AI News</a>
+  
+      <a href="#">Podcast Q&A</a>
+    </div>
+
+    <div class="footer-col">
+      <h4>Company</h4>
+      <a href="#">About</a>
+      <a href="#">Contacts</a>
+     
+    </div>
+
+    <div class="footer-col">
+      <h4>Social</h4>
+      <a href="#">Facebook</a>
+      <a href="#">Instagram</a>
+      <a href="#">Twitter</a>
+      <a href="#">GitHub</a>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <div>© 2026 AI NEXUS. All rights reserved.</div>
+    <!-- <div>Privacy · Terms · Security</div> -->
+  </div>
+
+</footer>
+
+</html>

@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>About Us | Brittocharette</title>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background: #ffffff;
+            color: #111;
+        }
+
+        /* NAVBAR */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 30px 60px;
+        }
+
+        .nav-left a {
+            margin-right: 25px;
+            text-decoration: none;
+            color: #111;
+            font-weight: 400;
+        }
+
+        .brand {
+            font-weight: 500;
+        }
+
+        .contact-btn {
+            padding: 10px 22px;
+            background: #000;
+            color: #fff;
+            border-radius: 25px;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        /* MAIN SECTION */
+        .container {
+            padding: 20px 60px 80px;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 2fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .about-title {
+            font-size: 110px;
+            font-weight: 800;
+            line-height: 1;
+        }
+
+        .about-left p {
+            margin-top: 20px;
+            font-size: 14px;
+            color: #555;
+            max-width: 260px;
+        }
+
+        .about-image-main img {
+            width: 100%;
+            border-radius: 25px;
+            object-fit: cover;
+        }
+
+        .about-right img {
+            width: 100%;
+            border-radius: 25px;
+            margin-bottom: 25px;
+        }
+
+        .about-right h3 {
+            font-size: 22px;
+            margin-bottom: 10px;
+        }
+
+        .about-right p {
+            font-size: 14px;
+            color: #555;
+        }
+
+        /* CREATORS SECTION */
+        .creators {
+            margin-top: 100px;
+            text-align: center;
+        }
+
+        .creators h2 {
+            font-size: 36px;
+            margin-bottom: 40px;
+        }
+
+        .creator-row {
+            display: flex;
+            justify-content: center;
+            gap: 60px;
+        }
+
+        .creator {
+            text-align: center;
+        }
+
+        .creator img {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid #eee;
+        }
+
+        .creator h4 {
+            margin-top: 12px;
+            font-weight: 500;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 1024px) {
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .about-title {
+                font-size: 70px;
+            }
+
+            .creator-row {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+         /* FOOTER */
+.footer{
+  border-top:1px solid #222;
+  padding:60px 90px 30px;
+  background:#0b0b0b;   /* professional black */
+  color:#ffffff;
+}
+.footer-top{
+  display:grid;
+  grid-template-columns:2fr 1fr 1fr 1fr;
+  gap:40px;
+}
+.footer-logo{
+  font-size:20px;
+  font-weight:700;
+  margin-bottom:14px;
+}
+.footer-desc{
+  font-size:14px;
+  color:#555;
+  line-height:1.6;
+  max-width:340px;
+}
+.footer-col h4{
+  font-size:14px;
+  font-weight:600;
+  margin-bottom:16px;
+}
+.footer-col a{
+  display:block;
+  text-decoration:none;
+  font-size:14px;
+  color:#555;
+  margin-bottom:10px;
+}
+.footer-col a:hover{
+  color:#111;
+}
+.footer-bottom{
+  margin-top:50px;
+  padding-top:20px;
+  border-top:1px solid #eee;
+  display:flex;
+  justify-content:space-between;
+  font-size:13px;
+  color:#777;
+}
+
+/* FOOTER RESPONSIVE */
+@media(max-width:900px){
+  .footer{
+    padding:50px 30px 20px;
+  }
+  .footer-top{
+    grid-template-columns:1fr;
+    gap:30px;
+  }
+  .footer-bottom{
+    flex-direction:column;
+    gap:10px;
+    text-align:center;
+  }}
+    </style>
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <div class="nav-left">
+            <a href="/home">Home</a>
+            <a href="/contact">Contact</a>
+        </div>
+
+        <div class="brand">AI NEXUS</div>
+
+        <!-- <a href="#" class="contact-btn">Contact Us</a> -->
+    </nav>
+
+    <!-- ABOUT SECTION -->
+    <div class="container">
+        <div class="about-grid">
+
+            <!-- LEFT -->
+            <div class="about-left">
+                <div class="about-title">ABOUT<br>US</div>
+                <p>
+                    Luxurious Interior and Industrial Design
+                    <br><br>
+                    Modern Elegance: Designs featuring clean lines,
+                    neutral palettes, and high-quality materials.
+                </p>
+            </div>
+
+            <!-- CENTER IMAGE -->
+            <div class="about-image-main">
+                <img src="./assets/image7.png" alt="">
+            </div>
+
+            <!-- RIGHT -->
+            <div class="about-right">
+                <img src="./assets/image8.png" alt="Interior Small">
+                <h3>Our Philosophy</h3>
+                <p>
+                    At Britto Charette, we believe in creating luxurious,
+                    personalized environments that reflect our clients'
+                    tastes and lifestyles.
+                </p>
+            </div>
+
+        </div>
+
+        <!-- CREATORS -->
+        <div class="creators">
+            <h2>Our Creators</h2>
+            <div class="creator-row">
+
+                <div class="creator">
+                    <img src="https://randomuser.me/api/portraits/men/32.jpg">
+                    <h4>Ashok Bhujel</h4>
+                </div>
+
+                <div class="creator">
+                    <img src="./assets/mehfuz.jpg">
+                    <h4>Mehfuz Alam</h4>
+                </div>
+
+                <div class="creator">
+                    <img src="https://randomuser.me/api/portraits/men/76.jpg">
+                    <h4>Subash Rajan Magar</h4>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</body>
+<footer class="footer">
+
+  <div class="footer-top">
+    <div>
+      <div class="footer-logo">AI NEXUS</div>
+      <p class="footer-desc">
+        Building open-source generative AI models for creators,
+        developers, and enterprises worldwide.
+      </p>
+    </div>
+
+    <div class="footer-col">
+      <h4>Products</h4>
+      <a href="#">Image Generation</a>
+      <a href="#">Image Captioning</a>
+      <a href="#">AI News</a>
+  
+      <a href="#">Podcast Q&A</a>
+    </div>
+
+    <div class="footer-col">
+      <h4>Company</h4>
+      <a href="#">About</a>
+      <a href="#">Contacts</a>
+     
+    </div>
+
+    <div class="footer-col">
+      <h4>Social</h4>
+      <a href="#">Facebook</a>
+      <a href="#">Instagram</a>
+      <a href="#">Twitter</a>
+      <a href="#">GitHub</a>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <div>© 2026 AI NEXUS. All rights reserved.</div>
+    <!-- <div>Privacy · Terms · Security</div> -->
+  </div>
+
+</footer>
+</html>

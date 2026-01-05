@@ -1,0 +1,2664 @@
+index.html
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Stability AI – Frontend Clone</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Font -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Inter", sans-serif;
+      }
+      body {
+        background: #fff;
+        color: #111;
+      }
+
+      /* NAVBAR */
+      .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 22px 60px;
+      }
+      .logo {
+        font-size: 18px;
+        font-weight: 700;
+      }
+      .nav-links a {
+        margin: 0 14px;
+        text-decoration: none;
+        color: #111;
+        font-size: 14px;
+      }
+      .contact-btn {
+        background: #111;
+        color: #fff;
+        border: none;
+        padding: 10px 18px;
+        border-radius: 8px;
+        cursor: pointer;
+      }
+
+      /* HERO */
+      .hero {
+        text-align: center;
+        margin-top: 90px;
+      }
+      .hero h1 {
+        font-size: 48px;
+        font-weight: 700;
+        line-height: 1.2;
+      }
+      .hero p {
+        margin-top: 22px;
+        color: #555;
+        font-size: 16px;
+      }
+
+      /* TABS */
+      .tabs {
+        margin-top: 40px;
+      }
+      .tabs button {
+        padding: 8px 16px;
+        margin: 0 5px;
+        border-radius: 20px;
+        border: 1px solid #ddd;
+        background: #fff;
+        cursor: pointer;
+        font-size: 13px;
+      }
+      .tabs .active {
+        background: #111;
+        color: #fff;
+      }
+      .tabs .new::after {
+        content: "NEW";
+        background: #6c5ce7;
+        color: #fff;
+        font-size: 10px;
+        padding: 2px 6px;
+        margin-left: 6px;
+        border-radius: 10px;
+      }
+
+      /* CONTENT */
+      .content {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 70px;
+        padding: 100px 90px;
+        align-items: center;
+      }
+      .left h2 {
+        font-size: 32px;
+        margin-bottom: 20px;
+      }
+      .left p {
+        color: #555;
+        font-size: 15px;
+        line-height: 1.6;
+      }
+      .buttons {
+        margin-top: 30px;
+      }
+      .primary {
+        background: #111;
+        color: #fff;
+        border: none;
+        padding: 12px 18px;
+        border-radius: 10px;
+        margin-right: 12px;
+        cursor: pointer;
+      }
+      .secondary {
+        background: none;
+        border: none;
+        font-weight: 500;
+        cursor: pointer;
+      }
+
+      /* IMAGE GRID */
+      .right-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
+      }
+      .right-grid img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+        border-radius: 14px;
+      }
+
+      /* RESPONSIVE */
+      @media (max-width: 900px) {
+        .content {
+          grid-template-columns: 1fr;
+          padding: 60px 30px;
+        }
+        .hero h1 {
+          font-size: 36px;
+        }
+        .navbar {
+          padding: 20px 30px;
+        }
+
+
+      
+}
+
+        /* FOOTER */
+.footer{
+  border-top:1px solid #222;
+  padding:60px 90px 30px;
+  background:#0b0b0b;   /* professional black */
+  color:#ffffff;
+}
+.footer-top{
+  display:grid;
+  grid-template-columns:2fr 1fr 1fr 1fr;
+  gap:40px;
+}
+.footer-logo{
+  font-size:20px;
+  font-weight:700;
+  margin-bottom:14px;
+}
+.footer-desc{
+  font-size:14px;
+  color:#555;
+  line-height:1.6;
+  max-width:340px;
+}
+.footer-col h4{
+  font-size:14px;
+  font-weight:600;
+  margin-bottom:16px;
+}
+.footer-col a{
+  display:block;
+  text-decoration:none;
+  font-size:14px;
+  color:#555;
+  margin-bottom:10px;
+}
+.footer-col a:hover{
+  color:#111;
+}
+.footer-bottom{
+  margin-top:50px;
+  padding-top:20px;
+  border-top:1px solid #eee;
+  display:flex;
+  justify-content:space-between;
+  font-size:13px;
+  color:#777;
+}
+
+/* FOOTER RESPONSIVE */
+@media(max-width:900px){
+  .footer{
+    padding:50px 30px 20px;
+  }
+  .footer-top{
+    grid-template-columns:1fr;
+    gap:30px;
+  }
+  .footer-bottom{
+    flex-direction:column;
+    gap:10px;
+    text-align:center;
+  }}
+    </style>
+  </head>
+
+  <body>
+    <header class="navbar">
+      <div class="logo">AI NEXUS</div>
+
+      <nav class="nav-links">
+        <a href="#">Home</a>
+        <!-- <a href="#">Applications</a>
+        <a href="#">Deployment</a> -->
+        <a href="#">Contact</a>
+        <a href="#">About</a>
+      </nav>
+
+      <button class="contact-btn">Login</button>
+    </header>
+
+    <section class="hero">
+      <h1>Unlocking Human Potential<br />With Generative AI.</h1>
+      <p>
+        An Integrated Multimodal AI System<br />
+        for creative image, text, speech generation.
+      </p>
+
+      <div class="tabs">
+        <button class="active">Image Generation</button>
+        <button>Image Captioning</button>
+        <button>AI News</button>
+        <button>Podcast Q&A</button>
+        <!-- <button class="new">3D Objects</button> -->
+      </div>
+      <p>Login To Use All Features</p>
+    </section>
+    
+    <section class="content">
+      <div class="left">
+        <h2>AI NEXUS</h2>
+        <p>
+          Is our most advanced text-to-image AI model with two billion
+          parameters, excelling in photorealism, handling complex prompts,
+          generating clear text, and offering unparalleled creative
+          possibilities.
+        </p>
+
+        <div class="buttons">
+          <button class="primary">Get Started</button>
+          <button class="secondary">Show Info</button>
+        </div>
+      </div>
+
+      <div class="right-grid">
+        <img
+          src="image4.png"
+        />
+        <img
+          src="image1.png"
+        />
+        <img
+          src="image2.png"
+        />
+        <img
+          src="image3.png"
+        />
+        <img
+          src="image.png"
+        />
+      </div>
+    </section>
+    
+  </body>
+  <footer class="footer">
+
+  <div class="footer-top">
+    <div>
+      <div class="footer-logo">AI NEXUS</div>
+      <p class="footer-desc">
+        Building open-source generative AI models for creators,
+        developers, and enterprises worldwide.
+      </p>
+    </div>
+
+    <div class="footer-col">
+      <h4>Products</h4>
+      <a href="#">Image Generation</a>
+      <a href="#">Image Captioning</a>
+      <a href="#">AI News</a>
+  
+      <a href="#">Podcast Q&A</a>
+    </div>
+
+    <div class="footer-col">
+      <h4>Company</h4>
+      <a href="#">About</a>
+      <a href="#">Contacts</a>
+     
+    </div>
+
+    <div class="footer-col">
+      <h4>Social</h4>
+      <a href="#">Facebook</a>
+      <a href="#">Instagram</a>
+      <a href="#">Twitter</a>
+      <a href="#">GitHub</a>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <div>© 2026 AI NEXUS. All rights reserved.</div>
+    <!-- <div>Privacy · Terms · Security</div> -->
+  </div>
+
+</footer>
+
+</html>
+
+
+
+home.html
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Stability AI – Frontend Clone</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Font -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Inter", sans-serif;
+      }
+      body {
+        background: #fff;
+        color: #111;
+      }
+
+      /* NAVBAR */
+      .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 22px 60px;
+      }
+      .logo {
+        font-size: 18px;
+        font-weight: 700;
+      }
+      .nav-links a {
+        margin: 0 14px;
+        text-decoration: none;
+        color: #111;
+        font-size: 14px;
+      }
+      .contact-btn {
+        background: #111;
+        color: #fff;
+        border: none;
+        padding: 10px 18px;
+        border-radius: 8px;
+        cursor: pointer;
+      }
+
+      /* HERO */
+      .hero {
+        text-align: center;
+        margin-top: 90px;
+      }
+      .hero h1 {
+        font-size: 48px;
+        font-weight: 700;
+        line-height: 1.2;
+      }
+      .hero p {
+        margin-top: 22px;
+        color: #555;
+        font-size: 16px;
+      }
+
+      /* TABS */
+      .tabs {
+        margin-top: 40px;
+      }
+      .tabs button {
+        padding: 8px 16px;
+        margin: 0 5px;
+        border-radius: 20px;
+        border: 1px solid #ddd;
+        background: #fff;
+        cursor: pointer;
+        font-size: 13px;
+      }
+      .tabs .active {
+        background: #111;
+        color: #fff;
+      }
+      .tabs .new::after {
+        content: "NEW";
+        background: #6c5ce7;
+        color: #fff;
+        font-size: 10px;
+        padding: 2px 6px;
+        margin-left: 6px;
+        border-radius: 10px;
+      }
+
+      /* CONTENT */
+      .content {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 70px;
+        padding: 100px 90px;
+        align-items: center;
+      }
+      .left h2 {
+        font-size: 32px;
+        margin-bottom: 20px;
+      }
+      .left p {
+        color: #555;
+        font-size: 15px;
+        line-height: 1.6;
+      }
+      .buttons {
+        margin-top: 30px;
+      }
+      .primary {
+        background: #111;
+        color: #fff;
+        border: none;
+        padding: 12px 18px;
+        border-radius: 10px;
+        margin-right: 12px;
+        cursor: pointer;
+      }
+      .secondary {
+        background: none;
+        border: none;
+        font-weight: 500;
+        cursor: pointer;
+      }
+
+      /* IMAGE GRID */
+      .right-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
+      }
+      .right-grid img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+        border-radius: 14px;
+      }
+
+      /* RESPONSIVE */
+      @media (max-width: 900px) {
+        .content {
+          grid-template-columns: 1fr;
+          padding: 60px 30px;
+        }
+        .hero h1 {
+          font-size: 36px;
+        }
+        .navbar {
+          padding: 20px 30px;
+        }
+
+
+      
+}
+
+        /* FOOTER */
+.footer{
+  border-top:1px solid #222;
+  padding:60px 90px 30px;
+  background:#0b0b0b;   /* professional black */
+  color:#ffffff;
+}
+.footer-top{
+  display:grid;
+  grid-template-columns:2fr 1fr 1fr 1fr;
+  gap:40px;
+}
+.footer-logo{
+  font-size:20px;
+  font-weight:700;
+  margin-bottom:14px;
+}
+.footer-desc{
+  font-size:14px;
+  color:#555;
+  line-height:1.6;
+  max-width:340px;
+}
+.footer-col h4{
+  font-size:14px;
+  font-weight:600;
+  margin-bottom:16px;
+}
+.footer-col a{
+  display:block;
+  text-decoration:none;
+  font-size:14px;
+  color:#555;
+  margin-bottom:10px;
+}
+.footer-col a:hover{
+  color:#111;
+}
+.footer-bottom{
+  margin-top:50px;
+  padding-top:20px;
+  border-top:1px solid #eee;
+  display:flex;
+  justify-content:space-between;
+  font-size:13px;
+  color:#777;
+}
+
+/* FOOTER RESPONSIVE */
+@media(max-width:900px){
+  .footer{
+    padding:50px 30px 20px;
+  }
+  .footer-top{
+    grid-template-columns:1fr;
+    gap:30px;
+  }
+  .footer-bottom{
+    flex-direction:column;
+    gap:10px;
+    text-align:center;
+  }}
+  /* PROFILE AVATAR */
+.profile {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  overflow: hidden;
+  cursor: pointer;
+  border: 2px solid #111;
+}
+
+.profile img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.profile:hover {
+  transform: scale(1.05);
+  transition: 0.2s ease;
+}
+
+    </style>
+  </head>
+
+  <body>
+    <header class="navbar">
+      <div class="logo">AI NEXUS</div>
+
+      <nav class="nav-links">
+        <a href="#">Home</a>
+        <!-- <a href="#">Applications</a>
+        <a href="#">Deployment</a> -->
+        <a href="#">Contact</a>
+        <a href="#">About</a>
+      </nav>
+
+      <div class="profile">
+  <img src="image4.png" alt="User Profile" />
+</div>
+
+    </header>
+
+    <section class="hero">
+      <h1>Unlocking Human Potential<br />With Generative AI.</h1>
+      <p>
+        An Integrated Multimodal AI System<br />
+        for creative image, text, speech generation.
+      </p>
+
+      <div class="tabs">
+        <button class="active">Image Generation</button>
+        <button>Image Captioning</button>
+        <button>AI News</button>
+        <button>Podcast Q&A</button>
+        <!-- <button class="new">3D Objects</button> -->
+      </div>
+     
+    </section>
+    
+    <section class="content">
+      <div class="left">
+        <h2>AI NEXUS</h2>
+        <p>
+          Is our most advanced text-to-image AI model with two billion
+          parameters, excelling in photorealism, handling complex prompts,
+          generating clear text, and offering unparalleled creative
+          possibilities.
+        </p>
+
+        <div class="buttons">
+          <button class="primary">Get Started</button>
+          <button class="secondary">Show Info</button>
+        </div>
+      </div>
+
+      <div class="right-grid">
+        <img
+          src="image4.png"
+        />
+        <img
+          src="image1.png"
+        />
+        <img
+          src="image2.png"
+        />
+        <img
+          src="image3.png"
+        />
+        <img
+          src="image.png"
+        />
+      </div>
+    </section>
+
+    
+  </body>
+  <footer class="footer">
+
+  <div class="footer-top">
+    <div>
+      <div class="footer-logo">AI NEXUS</div>
+      <p class="footer-desc">
+        Building open-source generative AI models for creators,
+        developers, and enterprises worldwide.
+      </p>
+    </div>
+
+    <div class="footer-col">
+      <h4>Products</h4>
+      <a href="#">Image Generation</a>
+      <a href="#">Image Captioning</a>
+      <a href="#">AI News</a>
+  
+      <a href="#">Podcast Q&A</a>
+    </div>
+
+    <div class="footer-col">
+      <h4>Company</h4>
+      <a href="#">About</a>
+      <a href="#">Contacts</a>
+     
+    </div>
+
+    <div class="footer-col">
+      <h4>Social</h4>
+      <a href="#">Facebook</a>
+      <a href="#">Instagram</a>
+      <a href="#">Twitter</a>
+      <a href="#">GitHub</a>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <div>© 2026 AI NEXUS. All rights reserved.</div>
+    <!-- <div>Privacy · Terms · Security</div> -->
+  </div>
+
+</footer>
+
+</html>
+
+
+text_to_image.html
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Stability AI – Frontend Clone</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Font -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Inter", sans-serif;
+      }
+      body {
+        background: #fff;
+        color: #111;
+      }
+
+      /* NAVBAR */
+      .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 22px 60px;
+      }
+      .logo {
+        font-size: 18px;
+        font-weight: 700;
+      }
+      .nav-links a {
+        margin: 0 14px;
+        text-decoration: none;
+        color: #111;
+        font-size: 14px;
+      }
+      .contact-btn {
+        background: #111;
+        color: #fff;
+        border: none;
+        padding: 10px 18px;
+        border-radius: 8px;
+        cursor: pointer;
+      }
+
+      /* HERO */
+      .hero {
+        text-align: center;
+        margin-top: 90px;
+      }
+      .hero h1 {
+        font-size: 48px;
+        font-weight: 700;
+        line-height: 1.2;
+      }
+      .hero p {
+        margin-top: 22px;
+        color: #555;
+        font-size: 16px;
+      }
+
+      /* TABS */
+      .tabs {
+        margin-top: 40px;
+      }
+      .tabs button {
+        padding: 8px 16px;
+        margin: 0 5px;
+        border-radius: 20px;
+        border: 1px solid #ddd;
+        background: #fff;
+        cursor: pointer;
+        font-size: 13px;
+      }
+      .tabs .active {
+        background: #111;
+        color: #fff;
+      }
+      .tabs .new::after {
+        content: "NEW";
+        background: #6c5ce7;
+        color: #fff;
+        font-size: 10px;
+        padding: 2px 6px;
+        margin-left: 6px;
+        border-radius: 10px;
+      }
+
+      /* CONTENT */
+      .content {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 70px;
+        padding: 100px 90px;
+        align-items: center;
+      }
+      .left h2 {
+        font-size: 32px;
+        margin-bottom: 20px;
+      }
+      .left p {
+        color: #555;
+        font-size: 15px;
+        line-height: 1.6;
+      }
+      .buttons {
+        margin-top: 30px;
+      }
+      .primary {
+        background: #111;
+        color: #fff;
+        border: none;
+        padding: 12px 18px;
+        border-radius: 10px;
+        margin-right: 12px;
+        cursor: pointer;
+      }
+      .secondary {
+        background: none;
+        border: none;
+        font-weight: 500;
+        cursor: pointer;
+      }
+
+      /* IMAGE GRID */
+      .right-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
+      }
+      .right-grid img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+        border-radius: 14px;
+      }
+
+      /* RESPONSIVE */
+      @media (max-width: 900px) {
+        .content {
+          grid-template-columns: 1fr;
+          padding: 60px 30px;
+        }
+        .hero h1 {
+          font-size: 36px;
+        }
+        .navbar {
+          padding: 20px 30px;
+        }
+
+
+      
+}
+
+        /* FOOTER */
+.footer{
+  border-top:1px solid #222;
+  padding:60px 90px 30px;
+  background:#0b0b0b;   /* professional black */
+  color:#ffffff;
+}
+.footer-top{
+  display:grid;
+  grid-template-columns:2fr 1fr 1fr 1fr;
+  gap:40px;
+}
+.footer-logo{
+  font-size:20px;
+  font-weight:700;
+  margin-bottom:14px;
+}
+.footer-desc{
+  font-size:14px;
+  color:#555;
+  line-height:1.6;
+  max-width:340px;
+}
+.footer-col h4{
+  font-size:14px;
+  font-weight:600;
+  margin-bottom:16px;
+}
+.footer-col a{
+  display:block;
+  text-decoration:none;
+  font-size:14px;
+  color:#555;
+  margin-bottom:10px;
+}
+.footer-col a:hover{
+  color:#111;
+}
+.footer-bottom{
+  margin-top:50px;
+  padding-top:20px;
+  border-top:1px solid #eee;
+  display:flex;
+  justify-content:space-between;
+  font-size:13px;
+  color:#777;
+}
+
+/* FOOTER RESPONSIVE */
+@media(max-width:900px){
+  .footer{
+    padding:50px 30px 20px;
+  }
+  .footer-top{
+    grid-template-columns:1fr;
+    gap:30px;
+  }
+  .footer-bottom{
+    flex-direction:column;
+    gap:10px;
+    text-align:center;
+  }}
+    </style>
+  </head>
+
+  <body>
+    <header class="navbar">
+      <div class="logo">AI NEXUS</div>
+
+      <nav class="nav-links">
+        <a href="#">Home</a>
+        <!-- <a href="#">Applications</a>
+        <a href="#">Deployment</a> -->
+        <a href="#">Contact</a>
+        <a href="#">About</a>
+      </nav>
+
+      <button class="contact-btn">Login</button>
+    </header>
+
+    <section class="hero">
+      <h1>Unlocking Human Potential<br />With Generative AI.</h1>
+      <p>
+        An Integrated Multimodal AI System<br />
+        for creative image, text, speech generation.
+      </p>
+
+      <!-- <div class="tabs">
+        <button class="active">Image Generation</button>
+        <button>Image Captioning</button>
+        <button>AI News</button>
+        <button>Podcast Q&A</button>
+         <button class="new">3D Objects</button> 
+      </div> -->
+    </section>
+
+    <!-- <section class="content">
+      <div class="left">
+        <h2>AI NEXUS</h2>
+        <p>
+          Is our most advanced text-to-image AI model with two billion
+          parameters, excelling in photorealism, handling complex prompts,
+          generating clear text, and offering unparalleled creative
+          possibilities.
+        </p>
+
+        <div class="buttons">
+          <button class="primary">Get Started</button>
+          <button class="secondary">Show Info</button>
+        </div>
+      </div>
+
+      <div class="right-grid">
+        <img
+          src="https://images.unsplash.com/photo-1501785888041-af3ef285b470"
+        />
+        <img
+          src="https://images.unsplash.com/photo-1519682337058-a94d519337bc"
+        />
+        <img
+          src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee"
+        />
+        <img
+          src="https://images.unsplash.com/photo-1507149833265-60c372daea22"
+        />
+        <img
+          src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e"
+        />
+      </div>
+    </section> -->
+    <section style="padding: 40px 90px; text-align:center;">
+  <h2 style="font-size:28px; margin-bottom:20px;">Generate Image</h2>
+
+  <div style="max-width:600px; margin:auto;">
+    <input
+      id="promptInput"
+      type="text"
+      placeholder="Enter your image prompt..."
+      style="
+        width:100%;
+        padding:14px;
+        border-radius:10px;
+        border:1px solid #ddd;
+        font-size:15px;
+      "
+    />
+
+    <button
+      onclick="generateImage()"
+      style="
+        margin-top:16px;
+        padding:12px 20px;
+        border:none;
+        background:#111;
+        color:#fff;
+        border-radius:10px;
+        cursor:pointer;
+      "
+    >
+      Generate Image
+    </button>
+  </div>
+
+  <div id="imageResult" style="margin-top:40px;"></div>
+</section>
+
+
+    
+  </body>
+  <footer class="footer">
+
+  <div class="footer-top">
+    <div>
+      <div class="footer-logo">AI NEXUS</div>
+      <p class="footer-desc">
+        Building open-source generative AI models for creators,
+        developers, and enterprises worldwide.
+      </p>
+    </div>
+
+    <div class="footer-col">
+      <h4>Products</h4>
+      <a href="#">Image Generation</a>
+      <a href="#">Image Captioning</a>
+      <a href="#">AI News</a>
+  
+      <a href="#">Podcast Q&A</a>
+    </div>
+
+    <div class="footer-col">
+      <h4>Company</h4>
+      <a href="#">About</a>
+      <a href="#">Contacts</a>
+     
+    </div>
+
+    <div class="footer-col">
+      <h4>Social</h4>
+      <a href="#">Facebook</a>
+      <a href="#">Instagram</a>
+      <a href="#">Twitter</a>
+      <a href="#">GitHub</a>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <div>© 2026 AI NEXUS. All rights reserved.</div>
+    <!-- <div>Privacy · Terms · Security</div> -->
+  </div>
+
+</footer>
+</html>
+
+Ai_news.html
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Stability AI – Frontend Clone</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Font -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Inter", sans-serif;
+      }
+      body {
+        background: #fff;
+        color: #111;
+      }
+
+      /* NAVBAR */
+      .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 22px 60px;
+      }
+      .logo {
+        font-size: 18px;
+        font-weight: 700;
+      }
+      .nav-links a {
+        margin: 0 14px;
+        text-decoration: none;
+        color: #111;
+        font-size: 14px;
+      }
+      .contact-btn {
+        background: #111;
+        color: #fff;
+        border: none;
+        padding: 10px 18px;
+        border-radius: 8px;
+        cursor: pointer;
+      }
+
+      /* HERO */
+      .hero {
+        text-align: center;
+        margin-top: 90px;
+      }
+      .hero h1 {
+        font-size: 48px;
+        font-weight: 700;
+        line-height: 1.2;
+      }
+      .hero p {
+        margin-top: 22px;
+        color: #555;
+        font-size: 16px;
+      }
+
+      /* TABS */
+      .tabs {
+        margin-top: 40px;
+      }
+      .tabs button {
+        padding: 8px 16px;
+        margin: 0 5px;
+        border-radius: 20px;
+        border: 1px solid #ddd;
+        background: #fff;
+        cursor: pointer;
+        font-size: 13px;
+      }
+      .tabs .active {
+        background: #111;
+        color: #fff;
+      }
+      .tabs .new::after {
+        content: "NEW";
+        background: #6c5ce7;
+        color: #fff;
+        font-size: 10px;
+        padding: 2px 6px;
+        margin-left: 6px;
+        border-radius: 10px;
+      }
+
+      /* CONTENT */
+      .content {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 70px;
+        padding: 100px 90px;
+        align-items: center;
+      }
+      .left h2 {
+        font-size: 32px;
+        margin-bottom: 20px;
+      }
+      .left p {
+        color: #555;
+        font-size: 15px;
+        line-height: 1.6;
+      }
+      .buttons {
+        margin-top: 30px;
+      }
+      .primary {
+        background: #111;
+        color: #fff;
+        border: none;
+        padding: 12px 18px;
+        border-radius: 10px;
+        margin-right: 12px;
+        cursor: pointer;
+      }
+      .secondary {
+        background: none;
+        border: none;
+        font-weight: 500;
+        cursor: pointer;
+      }
+
+      /* IMAGE GRID */
+      .right-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
+      }
+      .right-grid img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+        border-radius: 14px;
+      }
+
+      /* RESPONSIVE */
+      @media (max-width: 900px) {
+        .content {
+          grid-template-columns: 1fr;
+          padding: 60px 30px;
+        }
+        .hero h1 {
+          font-size: 36px;
+        }
+        .navbar {
+          padding: 20px 30px;
+        }
+
+
+      
+}
+
+        /* FOOTER */
+.footer{
+  border-top:1px solid #222;
+  padding:60px 90px 30px;
+  background:#0b0b0b;   /* professional black */
+  color:#ffffff;
+}
+.footer-top{
+  display:grid;
+  grid-template-columns:2fr 1fr 1fr 1fr;
+  gap:40px;
+}
+.footer-logo{
+  font-size:20px;
+  font-weight:700;
+  margin-bottom:14px;
+}
+.footer-desc{
+  font-size:14px;
+  color:#555;
+  line-height:1.6;
+  max-width:340px;
+}
+.footer-col h4{
+  font-size:14px;
+  font-weight:600;
+  margin-bottom:16px;
+}
+.footer-col a{
+  display:block;
+  text-decoration:none;
+  font-size:14px;
+  color:#555;
+  margin-bottom:10px;
+}
+.footer-col a:hover{
+  color:#111;
+}
+.footer-bottom{
+  margin-top:50px;
+  padding-top:20px;
+  border-top:1px solid #eee;
+  display:flex;
+  justify-content:space-between;
+  font-size:13px;
+  color:#777;
+}
+
+/* FOOTER RESPONSIVE */
+@media(max-width:900px){
+  .footer{
+    padding:50px 30px 20px;
+  }
+  .footer-top{
+    grid-template-columns:1fr;
+    gap:30px;
+  }
+  .footer-bottom{
+    flex-direction:column;
+    gap:10px;
+    text-align:center;
+  }}
+    </style>
+  </head>
+
+  <body>
+    <header class="navbar">
+      <div class="logo">AI NEXUS</div>
+
+      <nav class="nav-links">
+        <a href="#">Home</a>
+        <!-- <a href="#">Applications</a>
+        <a href="#">Deployment</a> -->
+        <a href="#">Contact</a>
+        <a href="#">About</a>
+      </nav>
+
+      <button class="contact-btn">Login</button>
+    </header>
+
+    <section class="hero">
+      <h1>Unlocking Human Potential<br />With Generative AI.</h1>
+      <p>
+        An Integrated Multimodal AI System<br />
+        for creative image, text, speech generation.
+      </p>
+
+    <section style="padding: 40px 90px; text-align:center;">
+  <h2 style="font-size:28px; margin-bottom:20px;">AI News Generator</h2>
+
+  <div style="max-width:600px; margin:auto;">
+    <input
+      id="newsPrompt"
+      type="text"
+      placeholder="Enter news topic or prompt..."
+      style="
+        width:100%;
+        padding:14px;
+        border-radius:10px;
+        border:1px solid #ddd;
+        font-size:15px;
+      "
+    />
+
+    <button
+      onclick="generateNews()"
+      style="
+        margin-top:16px;
+        padding:12px 20px;
+        border:none;
+        background:#111;
+        color:#fff;
+        border-radius:10px;
+        cursor:pointer;
+      "
+    >
+      Generate News
+    </button>
+  </div>
+
+  <div id="newsResult" style="margin-top:40px;"></div>
+</section>
+
+
+
+
+    
+    
+  </body>
+  <footer class="footer">
+
+  <div class="footer-top">
+    <div>
+      <div class="footer-logo">AI NEXUS</div>
+      <p class="footer-desc">
+        Building open-source generative AI models for creators,
+        developers, and enterprises worldwide.
+      </p>
+    </div>
+
+    <div class="footer-col">
+      <h4>Products</h4>
+      <a href="#">Image Generation</a>
+      <a href="#">Image Captioning</a>
+      <a href="#">AI News</a>
+  
+      <a href="#">Podcast Q&A</a>
+    </div>
+
+    <div class="footer-col">
+      <h4>Company</h4>
+      <a href="#">About</a>
+      <a href="#">Contacts</a>
+     
+    </div>
+
+    <div class="footer-col">
+      <h4>Social</h4>
+      <a href="#">Facebook</a>
+      <a href="#">Instagram</a>
+      <a href="#">Twitter</a>
+      <a href="#">GitHub</a>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <div>© 2026 AI NEXUS. All rights reserved.</div>
+    <!-- <div>Privacy · Terms · Security</div> -->
+  </div>
+
+</footer>
+
+</html>
+
+
+image_captioning.html
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Stability AI – Frontend Clone</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Font -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Inter", sans-serif;
+      }
+      body {
+        background: #fff;
+        color: #111;
+      }
+
+      /* NAVBAR */
+      .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 22px 60px;
+      }
+      .logo {
+        font-size: 18px;
+        font-weight: 700;
+      }
+      .nav-links a {
+        margin: 0 14px;
+        text-decoration: none;
+        color: #111;
+        font-size: 14px;
+      }
+      .contact-btn {
+        background: #111;
+        color: #fff;
+        border: none;
+        padding: 10px 18px;
+        border-radius: 8px;
+        cursor: pointer;
+      }
+
+      /* HERO */
+      .hero {
+        text-align: center;
+        margin-top: 90px;
+      }
+      .hero h1 {
+        font-size: 48px;
+        font-weight: 700;
+        line-height: 1.2;
+      }
+      .hero p {
+        margin-top: 22px;
+        color: #555;
+        font-size: 16px;
+      }
+
+      /* TABS */
+      .tabs {
+        margin-top: 40px;
+      }
+      .tabs button {
+        padding: 8px 16px;
+        margin: 0 5px;
+        border-radius: 20px;
+        border: 1px solid #ddd;
+        background: #fff;
+        cursor: pointer;
+        font-size: 13px;
+      }
+      .tabs .active {
+        background: #111;
+        color: #fff;
+      }
+      .tabs .new::after {
+        content: "NEW";
+        background: #6c5ce7;
+        color: #fff;
+        font-size: 10px;
+        padding: 2px 6px;
+        margin-left: 6px;
+        border-radius: 10px;
+      }
+
+      /* CONTENT */
+      .content {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 70px;
+        padding: 100px 90px;
+        align-items: center;
+      }
+      .left h2 {
+        font-size: 32px;
+        margin-bottom: 20px;
+      }
+      .left p {
+        color: #555;
+        font-size: 15px;
+        line-height: 1.6;
+      }
+      .buttons {
+        margin-top: 30px;
+      }
+      .primary {
+        background: #111;
+        color: #fff;
+        border: none;
+        padding: 12px 18px;
+        border-radius: 10px;
+        margin-right: 12px;
+        cursor: pointer;
+      }
+      .secondary {
+        background: none;
+        border: none;
+        font-weight: 500;
+        cursor: pointer;
+      }
+
+      /* IMAGE GRID */
+      .right-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
+      }
+      .right-grid img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+        border-radius: 14px;
+      }
+
+      /* RESPONSIVE */
+      @media (max-width: 900px) {
+        .content {
+          grid-template-columns: 1fr;
+          padding: 60px 30px;
+        }
+        .hero h1 {
+          font-size: 36px;
+        }
+        .navbar {
+          padding: 20px 30px;
+        }
+
+
+      
+}
+
+        /* FOOTER */
+.footer{
+  border-top:1px solid #222;
+  padding:60px 90px 30px;
+  background:#0b0b0b;   /* professional black */
+  color:#ffffff;
+}
+.footer-top{
+  display:grid;
+  grid-template-columns:2fr 1fr 1fr 1fr;
+  gap:40px;
+}
+.footer-logo{
+  font-size:20px;
+  font-weight:700;
+  margin-bottom:14px;
+}
+.footer-desc{
+  font-size:14px;
+  color:#555;
+  line-height:1.6;
+  max-width:340px;
+}
+.footer-col h4{
+  font-size:14px;
+  font-weight:600;
+  margin-bottom:16px;
+}
+.footer-col a{
+  display:block;
+  text-decoration:none;
+  font-size:14px;
+  color:#555;
+  margin-bottom:10px;
+}
+.footer-col a:hover{
+  color:#111;
+}
+.footer-bottom{
+  margin-top:50px;
+  padding-top:20px;
+  border-top:1px solid #eee;
+  display:flex;
+  justify-content:space-between;
+  font-size:13px;
+  color:#777;
+}
+
+/* FOOTER RESPONSIVE */
+@media(max-width:900px){
+  .footer{
+    padding:50px 30px 20px;
+  }
+  .footer-top{
+    grid-template-columns:1fr;
+    gap:30px;
+  }
+  .footer-bottom{
+    flex-direction:column;
+    gap:10px;
+    text-align:center;
+  }}
+    </style>
+  </head>
+
+  <body>
+    <header class="navbar">
+      <div class="logo">AI NEXUS</div>
+
+      <nav class="nav-links">
+        <a href="#">Home</a>
+        <!-- <a href="#">Applications</a>
+        <a href="#">Deployment</a> -->
+        <a href="#">Contact</a>
+        <a href="#">About</a>
+      </nav>
+
+      <button class="contact-btn">Login</button>
+    </header>
+
+    <section class="hero">
+      <h1>Unlocking Human Potential<br />With Generative AI.</h1>
+      <p>
+        An Integrated Multimodal AI System<br />
+        for creative image, text, speech generation.
+      </p>
+
+      <!-- <div class="tabs">
+        <button class="active">Image Generation</button>
+        <button>Image Captioning</button>
+        <button>AI News</button>
+        <button>Podcast Q&A</button>
+         <button class="new">3D Objects</button> 
+      </div> -->
+    </section>
+
+    <!-- <section class="content">
+      <div class="left">
+        <h2>AI NEXUS</h2>
+        <p>
+          Is our most advanced text-to-image AI model with two billion
+          parameters, excelling in photorealism, handling complex prompts,
+          generating clear text, and offering unparalleled creative
+          possibilities.
+        </p>
+
+        <div class="buttons">
+          <button class="primary">Get Started</button>
+          <button class="secondary">Show Info</button>
+        </div>
+      </div>
+
+      <div class="right-grid">
+        <img
+          src="https://images.unsplash.com/photo-1501785888041-af3ef285b470"
+        />
+        <img
+          src="https://images.unsplash.com/photo-1519682337058-a94d519337bc"
+        />
+        <img
+          src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee"
+        />
+        <img
+          src="https://images.unsplash.com/photo-1507149833265-60c372daea22"
+        />
+        <img
+          src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e"
+        />
+      </div>
+    </section> -->
+    <section style="padding: 40px 90px; text-align:center;">
+  <h2 style="font-size:28px; margin-bottom:20px;">Image Captioning</h2>
+
+  <div style="max-width:600px; margin:auto;">
+    <input
+      type="file"
+      id="imageInput"
+      accept="image/*"
+      style="
+        width:100%;
+        padding:12px;
+        border-radius:10px;
+        border:1px solid #ddd;
+        font-size:15px;
+      "
+    />
+
+    <button
+      onclick="generateCaption()"
+      style="
+        margin-top:16px;
+        padding:12px 20px;
+        border:none;
+        background:#111;
+        color:#fff;
+        border-radius:10px;
+        cursor:pointer;
+      "
+    >
+      Generate Caption
+    </button>
+  </div>
+
+  <div id="captionResult" style="margin-top:40px;"></div>
+</section>
+
+
+
+
+    
+    
+  </body>
+  <footer class="footer">
+
+  <div class="footer-top">
+    <div>
+      <div class="footer-logo">AI NEXUS</div>
+      <p class="footer-desc">
+        Building open-source generative AI models for creators,
+        developers, and enterprises worldwide.
+      </p>
+    </div>
+
+    <div class="footer-col">
+      <h4>Products</h4>
+      <a href="#">Image Generation</a>
+      <a href="#">Image Captioning</a>
+      <a href="#">AI News</a>
+  
+      <a href="#">Podcast Q&A</a>
+    </div>
+
+    <div class="footer-col">
+      <h4>Company</h4>
+      <a href="#">About</a>
+      <a href="#">Contacts</a>
+     
+    </div>
+
+    <div class="footer-col">
+      <h4>Social</h4>
+      <a href="#">Facebook</a>
+      <a href="#">Instagram</a>
+      <a href="#">Twitter</a>
+      <a href="#">GitHub</a>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <div>© 2026 AI NEXUS. All rights reserved.</div>
+    <!-- <div>Privacy · Terms · Security</div> -->
+  </div>
+
+</footer>
+
+</html>
+
+
+podcast.html
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Stability AI – Frontend Clone</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Font -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Inter", sans-serif;
+      }
+      body {
+        background: #fff;
+        color: #111;
+      }
+
+      /* NAVBAR */
+      .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 22px 60px;
+      }
+      .logo {
+        font-size: 18px;
+        font-weight: 700;
+      }
+      .nav-links a {
+        margin: 0 14px;
+        text-decoration: none;
+        color: #111;
+        font-size: 14px;
+      }
+      .contact-btn {
+        background: #111;
+        color: #fff;
+        border: none;
+        padding: 10px 18px;
+        border-radius: 8px;
+        cursor: pointer;
+      }
+
+      /* HERO */
+      .hero {
+        text-align: center;
+        margin-top: 90px;
+      }
+      .hero h1 {
+        font-size: 48px;
+        font-weight: 700;
+        line-height: 1.2;
+      }
+      .hero p {
+        margin-top: 22px;
+        color: #555;
+        font-size: 16px;
+      }
+
+      /* TABS */
+      .tabs {
+        margin-top: 40px;
+      }
+      .tabs button {
+        padding: 8px 16px;
+        margin: 0 5px;
+        border-radius: 20px;
+        border: 1px solid #ddd;
+        background: #fff;
+        cursor: pointer;
+        font-size: 13px;
+      }
+      .tabs .active {
+        background: #111;
+        color: #fff;
+      }
+      .tabs .new::after {
+        content: "NEW";
+        background: #6c5ce7;
+        color: #fff;
+        font-size: 10px;
+        padding: 2px 6px;
+        margin-left: 6px;
+        border-radius: 10px;
+      }
+
+      /* CONTENT */
+      .content {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 70px;
+        padding: 100px 90px;
+        align-items: center;
+      }
+      .left h2 {
+        font-size: 32px;
+        margin-bottom: 20px;
+      }
+      .left p {
+        color: #555;
+        font-size: 15px;
+        line-height: 1.6;
+      }
+      .buttons {
+        margin-top: 30px;
+      }
+      .primary {
+        background: #111;
+        color: #fff;
+        border: none;
+        padding: 12px 18px;
+        border-radius: 10px;
+        margin-right: 12px;
+        cursor: pointer;
+      }
+      .secondary {
+        background: none;
+        border: none;
+        font-weight: 500;
+        cursor: pointer;
+      }
+
+      /* IMAGE GRID */
+      .right-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
+      }
+      .right-grid img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+        border-radius: 14px;
+      }
+
+      /* RESPONSIVE */
+      @media (max-width: 900px) {
+        .content {
+          grid-template-columns: 1fr;
+          padding: 60px 30px;
+        }
+        .hero h1 {
+          font-size: 36px;
+        }
+        .navbar {
+          padding: 20px 30px;
+        }
+
+
+      
+}
+
+        /* FOOTER */
+.footer{
+  border-top:1px solid #222;
+  padding:60px 90px 30px;
+  background:#0b0b0b;   /* professional black */
+  color:#ffffff;
+}
+.footer-top{
+  display:grid;
+  grid-template-columns:2fr 1fr 1fr 1fr;
+  gap:40px;
+}
+.footer-logo{
+  font-size:20px;
+  font-weight:700;
+  margin-bottom:14px;
+}
+.footer-desc{
+  font-size:14px;
+  color:#555;
+  line-height:1.6;
+  max-width:340px;
+}
+.footer-col h4{
+  font-size:14px;
+  font-weight:600;
+  margin-bottom:16px;
+}
+.footer-col a{
+  display:block;
+  text-decoration:none;
+  font-size:14px;
+  color:#555;
+  margin-bottom:10px;
+}
+.footer-col a:hover{
+  color:#111;
+}
+.footer-bottom{
+  margin-top:50px;
+  padding-top:20px;
+  border-top:1px solid #eee;
+  display:flex;
+  justify-content:space-between;
+  font-size:13px;
+  color:#777;
+}
+
+/* FOOTER RESPONSIVE */
+@media(max-width:900px){
+  .footer{
+    padding:50px 30px 20px;
+  }
+  .footer-top{
+    grid-template-columns:1fr;
+    gap:30px;
+  }
+  .footer-bottom{
+    flex-direction:column;
+    gap:10px;
+    text-align:center;
+  }}
+    </style>
+  </head>
+
+  <body>
+    <header class="navbar">
+      <div class="logo">AI NEXUS</div>
+
+      <nav class="nav-links">
+        <a href="#">Home</a>
+        <!-- <a href="#">Applications</a>
+        <a href="#">Deployment</a> -->
+        <a href="#">Contact</a>
+        <a href="#">About</a>
+      </nav>
+
+      <button class="contact-btn">Login</button>
+    </header>
+
+    <section class="hero">
+      <h1>Unlocking Human Potential<br />With Generative AI.</h1>
+      <p>
+        An Integrated Multimodal AI System<br />
+        for creative image, text, speech generation.
+      </p>
+
+      <!-- <div class="tabs">
+        <button class="active">Image Generation</button>
+        <button>Image Captioning</button>
+        <button>AI News</button>
+        <button>Podcast Q&A</button>
+         <button class="new">3D Objects</button> 
+      </div> -->
+    </section>
+
+    <!-- <section class="content">
+      <div class="left">
+        <h2>AI NEXUS</h2>
+        <p>
+          Is our most advanced text-to-image AI model with two billion
+          parameters, excelling in photorealism, handling complex prompts,
+          generating clear text, and offering unparalleled creative
+          possibilities.
+        </p>
+
+        <div class="buttons">
+          <button class="primary">Get Started</button>
+          <button class="secondary">Show Info</button>
+        </div>
+      </div>
+
+      <div class="right-grid">
+        <img
+          src="https://images.unsplash.com/photo-1501785888041-af3ef285b470"
+        />
+        <img
+          src="https://images.unsplash.com/photo-1519682337058-a94d519337bc"
+        />
+        <img
+          src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee"
+        />
+        <img
+          src="https://images.unsplash.com/photo-1507149833265-60c372daea22"
+        />
+        <img
+          src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e"
+        />
+      </div>
+    </section> -->
+    <section style="padding: 40px 90px; text-align:center;">
+  <h2 style="font-size:28px; margin-bottom:20px;">
+    Audio to Text (Speech Recognition)
+  </h2>
+
+  <div style="max-width:600px; margin:auto;">
+    <input
+      type="file"
+      id="audioInput"
+      accept=".mp3,audio/*"
+      style="
+        width:100%;
+        padding:12px;
+        border-radius:10px;
+        border:1px solid #ddd;
+        font-size:15px;
+      "
+    />
+
+    <button
+      onclick="convertAudioToText()"
+      style="
+        margin-top:16px;
+        padding:12px 20px;
+        border:none;
+        background:#111;
+        color:#fff;
+        border-radius:10px;
+        cursor:pointer;
+      "
+    >
+      Convert to Text
+    </button>
+  </div>
+
+  <div id="audioTextResult" style="margin-top:40px;"></div>
+</section>
+
+
+    
+  </body>
+  <footer class="footer">
+
+  <div class="footer-top">
+    <div>
+      <div class="footer-logo">AI NEXUS</div>
+      <p class="footer-desc">
+        Building open-source generative AI models for creators,
+        developers, and enterprises worldwide.
+      </p>
+    </div>
+
+    <div class="footer-col">
+      <h4>Products</h4>
+      <a href="#">Image Generation</a>
+      <a href="#">Image Captioning</a>
+      <a href="#">AI News</a>
+  
+      <a href="#">Podcast Q&A</a>
+    </div>
+
+    <div class="footer-col">
+      <h4>Company</h4>
+      <a href="#">About</a>
+      <a href="#">Contacts</a>
+     
+    </div>
+
+    <div class="footer-col">
+      <h4>Social</h4>
+      <a href="#">Facebook</a>
+      <a href="#">Instagram</a>
+      <a href="#">Twitter</a>
+      <a href="#">GitHub</a>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <div>© 2026 AI NEXUS. All rights reserved.</div>
+    <!-- <div>Privacy · Terms · Security</div> -->
+  </div>
+
+</footer>
+
+</html>
+
+
+sign_in.html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>UISplash Login</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    *{
+      box-sizing:border-box;
+      margin:0;
+      padding:0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    }
+
+    body{
+      min-height:100vh;
+      display:flex;
+      background:#ffffff;
+    }
+
+    .left{
+      width:40%;
+      background:#0f0f10;
+      color:#ffffff;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      padding:40px;
+    }
+
+    .left-inner{
+      max-width:320px;
+    }
+
+    .left h1{
+      font-size:40px;
+      margin-bottom:16px;
+      font-weight:700;
+    }
+
+    .left p{
+      line-height:1.6;
+      font-size:16px;
+      color:#e6e6e6;
+    }
+
+    .right{
+      width:60%;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      padding:40px;
+    }
+
+    .card{
+      width:100%;
+      max-width:420px;
+    }
+
+    .card h2{
+      font-size:28px;
+      font-weight:700;
+      margin-bottom:6px;
+    }
+
+    .top-text{
+      margin-bottom:22px;
+      font-size:14px;
+      color:#666;
+    }
+
+    .top-text a{
+      color:#000;
+      text-decoration:none;
+      font-weight:600;
+    }
+
+    .social-btn{
+      width:100%;
+      border:1px solid #ddd;
+      background:#fff;
+      padding:10px 14px;
+      border-radius:6px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-size:14px;
+      cursor:pointer;
+      margin-bottom:10px;
+      transition:background .15s;
+    }
+
+    .social-btn:hover{
+      background:#fafafa;
+    }
+
+    .social-btn img{
+      width:18px;
+      height:18px;
+      margin-right:10px;
+    }
+
+    .divider{
+      text-align:center;
+      margin:18px 0;
+      position:relative;
+      color:#999;
+      font-size:13px;
+    }
+
+    .divider:before,
+    .divider:after{
+      content:"";
+      position:absolute;
+      top:50%;
+      width:40%;
+      height:1px;
+      background:#eee;
+    }
+
+    .divider:before{ left:0; }
+    .divider:after{ right:0; }
+
+    label{
+      font-size:13px;
+      color:#555;
+      display:block;
+      margin-bottom:6px;
+    }
+
+    input[type="email"],
+    input[type="password"]{
+      width:100%;
+      padding:10px 12px;
+      border:1px solid #ddd;
+      border-radius:6px;
+      font-size:14px;
+      margin-bottom:14px;
+    }
+
+    .password-row{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+    }
+
+    .password-row a{
+      font-size:12px;
+      color:#666;
+      text-decoration:none;
+    }
+
+    .remember{
+      display:flex;
+      align-items:center;
+      font-size:13px;
+      margin-bottom:16px;
+      color:#555;
+    }
+
+    .remember input{
+      margin-right:6px;
+    }
+
+    .login-btn{
+      width:100%;
+      padding:10px 14px;
+      border:none;
+      border-radius:6px;
+      background:#0f0f10;
+      color:#fff;
+      font-size:14px;
+      cursor:pointer;
+      transition:opacity .15s;
+    }
+
+    .login-btn:hover{
+      opacity:.9;
+    }
+
+    @media(max-width:900px){
+      body{
+        flex-direction:column;
+      }
+      .left,
+      .right{
+        width:100%;
+      }
+      .left{
+        padding:60px 30px;
+      }
+      .right{
+        padding:30px 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="left">
+    <div class="left-inner">
+      <h1>AI NEXUS</h1>
+      <p>An Integrated Multimodal AI System for creative image, text, speech generation.</p>
+    </div>
+  </div>
+
+  <div class="right">
+    <div class="card">
+      <h2>Login to your account</h2>
+      <p class="top-text">Don’t have an account? <a href="#">Sign Up</a></p>
+
+      <button class="social-btn">
+        <img alt="Google" src="https://www.svgrepo.com/show/303108/google-icon-logo.svg">
+        Sign in with Google
+      </button>
+
+      <button class="social-btn">
+        <img alt="Facebook" src="https://www.svgrepo.com/show/475647/facebook-color.svg">
+        Sign in with Facebook
+      </button>
+
+      <div class="divider">OR</div>
+
+      <label>Email</label>
+      <input type="email" placeholder="">
+
+      <div class="password-row">
+        <label>Password</label>
+        <a href="#">Forgot Password?</a>
+      </div>
+      <input type="password" placeholder="">
+
+      <label class="remember">
+        <input type="checkbox"> Remember me
+      </label>
+
+      <button class="login-btn">Login</button>
+    </div>
+  </div>
+</body>
+</html>
+
+
+signup.html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>UISplash Login</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    *{
+      box-sizing:border-box;
+      margin:0;
+      padding:0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    }
+
+    body{
+      min-height:100vh;
+      display:flex;
+      background:#ffffff;
+    }
+
+    .left{
+      width:40%;
+      background:#0f0f10;
+      color:#ffffff;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      padding:40px;
+    }
+
+    .left-inner{
+      max-width:320px;
+    }
+
+    .left h1{
+      font-size:40px;
+      margin-bottom:16px;
+      font-weight:700;
+    }
+
+    .left p{
+      line-height:1.6;
+      font-size:16px;
+      color:#e6e6e6;
+    }
+
+    .right{
+      width:60%;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      padding:40px;
+    }
+
+    .card{
+      width:100%;
+      max-width:420px;
+    }
+
+    .card h2{
+      font-size:28px;
+      font-weight:700;
+      margin-bottom:6px;
+    }
+
+    .top-text{
+      margin-bottom:22px;
+      font-size:14px;
+      color:#666;
+    }
+
+    .top-text a{
+      color:#000;
+      text-decoration:none;
+      font-weight:600;
+    }
+
+    .social-btn{
+      width:100%;
+      border:1px solid #ddd;
+      background:#fff;
+      padding:10px 14px;
+      border-radius:6px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-size:14px;
+      cursor:pointer;
+      margin-bottom:10px;
+      transition:background .15s;
+    }
+
+    .social-btn:hover{
+      background:#fafafa;
+    }
+
+    .social-btn img{
+      width:18px;
+      height:18px;
+      margin-right:10px;
+    }
+
+    .divider{
+      text-align:center;
+      margin:18px 0;
+      position:relative;
+      color:#999;
+      font-size:13px;
+    }
+
+    .divider:before,
+    .divider:after{
+      content:"";
+      position:absolute;
+      top:50%;
+      width:40%;
+      height:1px;
+      background:#eee;
+    }
+
+    .divider:before{ left:0; }
+    .divider:after{ right:0; }
+
+    label{
+      font-size:13px;
+      color:#555;
+      display:block;
+      margin-bottom:6px;
+    }
+
+    input[type="email"],
+    input[type="password"]{
+      width:100%;
+      padding:10px 12px;
+      border:1px solid #ddd;
+      border-radius:6px;
+      font-size:14px;
+      margin-bottom:14px;
+    }
+
+    .password-row{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+    }
+
+    .password-row a{
+      font-size:12px;
+      color:#666;
+      text-decoration:none;
+    }
+
+    .remember{
+      display:flex;
+      align-items:center;
+      font-size:13px;
+      margin-bottom:16px;
+      color:#555;
+    }
+
+    .remember input{
+      margin-right:6px;
+    }
+
+    .login-btn{
+      width:100%;
+      padding:10px 14px;
+      border:none;
+      border-radius:6px;
+      background:#0f0f10;
+      color:#fff;
+      font-size:14px;
+      cursor:pointer;
+      transition:opacity .15s;
+    }
+
+    .login-btn:hover{
+      opacity:.9;
+    }
+
+    @media(max-width:900px){
+      body{
+        flex-direction:column;
+      }
+      .left,
+      .right{
+        width:100%;
+      }
+      .left{
+        padding:60px 30px;
+      }
+      .right{
+        padding:30px 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="left">
+    <div class="left-inner">
+      <h1>AI NEXUS</h1>
+      <p>An Integrated Multimodal AI System for creative image, text, speech generation.</p>
+    </div>
+  </div>
+
+  <div class="right">
+    <div class="card">
+      <h2>SignUp for your account</h2>
+      <p class="top-text">Already have an account? <a href="#">Login</a></p>
+
+      <button class="social-btn">
+        <img alt="Google" src="https://www.svgrepo.com/show/303108/google-icon-logo.svg">
+        Sign in with Google
+      </button>
+
+      <button class="social-btn">
+        <img alt="Facebook" src="https://www.svgrepo.com/show/475647/facebook-color.svg">
+        Sign in with Facebook
+      </button>
+
+      <div class="divider">OR</div>
+
+      <label>Email</label>
+      <input type="email" placeholder="">
+
+      <div class="password-row">
+        <label>Password</label>
+       
+      </div>
+      <input type="password" placeholder="">
+      <div class="password-row">
+        <label>Confirm Password</label>
+       
+      </div>
+      <input type="password" placeholder="">
+
+      <label class="remember">
+        <input type="checkbox"> Remember me
+        
+      </label>
+
+      <button class="login-btn">SignUp</button>
+    </div>
+  </div>
+</body>
+</html>
+
+

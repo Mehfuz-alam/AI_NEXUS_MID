@@ -1,0 +1,748 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Stability AI – Frontend Clone</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Font -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Inter", sans-serif;
+      }
+      body {
+        background: #fff;
+        color: #111;
+      }
+
+      /* NAVBAR */
+      .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 22px 60px;
+      }
+      .logo {
+        font-size: 18px;
+        font-weight: 700;
+      }
+      .nav-links a {
+        margin: 0 14px;
+        text-decoration: none;
+        color: #111;
+        font-size: 14px;
+      }
+      .contact-btn {
+        background: #111;
+        color: #fff;
+        border: none;
+        padding: 10px 18px;
+        border-radius: 8px;
+        cursor: pointer;
+      }
+
+      /* HERO */
+      .hero {
+        text-align: center;
+        margin-top: 90px;
+      }
+      .hero h1 {
+        font-size: 48px;
+        font-weight: 700;
+        line-height: 1.2;
+      }
+      .hero p {
+        margin-top: 22px;
+        color: #555;
+        font-size: 16px;
+      }
+
+      /* TABS */
+      .tabs {
+        margin-top: 40px;
+      }
+      .tabs button {
+        padding: 8px 16px;
+        margin: 0 5px;
+        border-radius: 20px;
+        border: 1px solid #ddd;
+        background: #fff;
+        cursor: pointer;
+        font-size: 13px;
+      }
+      .tabs .active {
+        background: #111;
+        color: #fff;
+      }
+      .tabs .new::after {
+        content: "NEW";
+        background: #6c5ce7;
+        color: #fff;
+        font-size: 10px;
+        padding: 2px 6px;
+        margin-left: 6px;
+        border-radius: 10px;
+      }
+
+      /* CONTENT */
+      .content {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 70px;
+        padding: 100px 90px;
+        align-items: center;
+      }
+      .left h2 {
+        font-size: 32px;
+        margin-bottom: 20px;
+      }
+      .left p {
+        color: #555;
+        font-size: 15px;
+        line-height: 1.6;
+      }
+      .buttons {
+        margin-top: 30px;
+      }
+      .primary {
+        background: #111;
+        color: #fff;
+        border: none;
+        padding: 12px 18px;
+        border-radius: 10px;
+        margin-right: 12px;
+        cursor: pointer;
+      }
+      .secondary {
+        background: none;
+        border: none;
+        font-weight: 500;
+        cursor: pointer;
+      }
+
+      /* IMAGE GRID */
+      .right-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
+      }
+      .right-grid img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+        border-radius: 14px;
+      }
+
+      /* RESPONSIVE */
+      @media (max-width: 900px) {
+        .content {
+          grid-template-columns: 1fr;
+          padding: 60px 30px;
+        }
+        .hero h1 {
+          font-size: 36px;
+        }
+        .navbar {
+          padding: 20px 30px;
+        }
+
+
+      
+}
+
+        /* FOOTER */
+.footer{
+  border-top:1px solid #222;
+  padding:60px 90px 30px;
+  background:#0b0b0b;   /* professional black */
+  color:#ffffff;
+}
+.footer-top{
+  display:grid;
+  grid-template-columns:2fr 1fr 1fr 1fr;
+  gap:40px;
+}
+.footer-logo{
+  font-size:20px;
+  font-weight:700;
+  margin-bottom:14px;
+}
+.footer-desc{
+  font-size:14px;
+  color:#555;
+  line-height:1.6;
+  max-width:340px;
+}
+.footer-col h4{
+  font-size:14px;
+  font-weight:600;
+  margin-bottom:16px;
+}
+.footer-col a{
+  display:block;
+  text-decoration:none;
+  font-size:14px;
+  color:#555;
+  margin-bottom:10px;
+}
+.footer-col a:hover{
+  color:#111;
+}
+.footer-bottom{
+  margin-top:50px;
+  padding-top:20px;
+  border-top:1px solid #eee;
+  display:flex;
+  justify-content:space-between;
+  font-size:13px;
+  color:#777;
+}
+
+/* FOOTER RESPONSIVE */
+@media(max-width:900px){
+  .footer{
+    padding:50px 30px 20px;
+  }
+  .footer-top{
+    grid-template-columns:1fr;
+    gap:30px;
+  }
+  .footer-bottom{
+    flex-direction:column;
+    gap:10px;
+    text-align:center;
+  }}
+  /* PROFILE AVATAR */
+.profile {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  overflow: hidden;
+  cursor: pointer;
+  border: 2px solid #111;
+}
+
+.profile img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.profile:hover {
+  transform: scale(1.05);
+  transition: 0.2s ease;
+}
+
+/* AI RESPONSE STYLING */
+.ai-response {
+  max-width: 820px;
+  margin: 0 auto;
+  padding: 32px;
+  border-radius: 16px;
+  background: #fafafa;
+  box-shadow: 0 12px 40px rgba(0,0,0,0.08);
+  text-align: left;
+  line-height: 1.7;
+}
+
+/* Headings */
+.ai-response h1,
+.ai-response h2,
+.ai-response h3 {
+  margin-top: 28px;
+  margin-bottom: 14px;
+  font-weight: 600;
+}
+
+/* Paragraphs */
+.ai-response p {
+  margin-bottom: 14px;
+  color: #333;
+  font-size: 15px;
+}
+
+/* Lists */
+.ai-response ul,
+.ai-response ol {
+  padding-left: 22px;
+  margin-bottom: 16px;
+}
+
+.ai-response li {
+  margin-bottom: 8px;
+}
+
+/* Code blocks */
+.ai-response pre {
+  background: #0f172a;
+  color: #e5e7eb;
+  padding: 18px;
+  border-radius: 14px;
+  overflow-x: auto;
+  margin: 18px 0;
+  font-size: 14px;
+}
+
+.ai-response code {
+  font-family: "Fira Code", monospace;
+}
+
+/* Inline code */
+.ai-response p code {
+  background: #eee;
+  padding: 3px 6px;
+  border-radius: 6px;
+  font-size: 14px;
+}
+.chat-input-wrapper {
+  max-width: 720px;
+  margin: 0 auto;
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Textarea */
+.chat-input-wrapper textarea {
+  flex: 1;
+  padding: 14px 44px 14px 16px;
+  border-radius: 12px;
+  border: 1px solid #ddd;
+  font-size: 15px;
+  resize: none;
+  outline: none;
+}
+
+.chat-input-wrapper textarea:focus {
+  border-color: #111;
+}
+
+/* Mic Button */
+#micBtn {
+  position: absolute;
+  right: 90px;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1px solid #ddd;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+#micBtn:hover {
+  background: #f5f5f5;
+}
+
+/* Active recording state */
+#micBtn.listening {
+  background: #111;
+  color: #fff;
+  border-color: #111;
+}
+
+/* Send Button */
+.send-btn {
+  padding: 12px 22px;
+  border: none;
+  border-radius: 12px;
+  background: #111;
+  color: #fff;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.send-btn:hover {
+  opacity: 0.9;
+}
+
+    </style>
+  </head>
+<!-- 
+  <body>
+    <header class="navbar">
+      <div class="logo">AI NEXUS</div>
+
+      <nav class="nav-links">
+        <a href="/home">Home</a>
+        
+        <a href="/contact">Contact</a>
+        <a href="/about">About</a>
+      </nav>
+
+      <div class="profile">
+  <img src="./assets/image4.png" alt="User Profile" />
+</div>
+    </header>
+
+    <section class="hero">
+      <h1>Unlocking Human Potential<br />With Generative AI.</h1>
+      <p>
+        An Integrated Multimodal AI System<br />
+        for creative image, text, speech generation.
+      </p>
+
+    </section>
+   
+<section style="padding: 40px 90px; text-align:center;">
+    <h2 style="font-size:28px; margin-bottom:20px;">Select Mode</h2>
+    <select id="modeSelect" style="padding:12px 10px; font-size:16px; border-radius:8px; border:1px solid #ddd;">
+      <option value="image_captioning">Image Captioning</option>
+      <option value="animal_classification">Animal Captioning</option>
+    </select>
+  </section>
+
+    <section style="padding: 40px 90px; text-align:center;">
+  <h2 style="font-size:28px; margin-bottom:20px;">Image Captioning</h2>
+
+  <div style="max-width:600px; margin:auto;">
+    <input
+  type="file"
+  id="imageInput"
+  accept="image/*"
+  onchange="previewImage()"
+  style="
+    width:100%;
+    padding:12px;
+    border-radius:10px;
+    border:1px solid #ddd;
+    font-size:15px;
+  "
+/>
+<div style="margin-top: 15px;">
+    <img id="preview" style="max-width: 100%; display: none; border-radius: 10px;">
+</div>
+
+    <button
+      onclick="generateCaption()"
+      style="
+        margin-top:16px;
+        padding:12px 20px;
+        border:none;
+        background:#111;
+        color:#fff;
+        border-radius:10px;
+        cursor:pointer;
+      "
+    >
+      Generate Caption
+    </button>
+  </div>
+  
+
+  <div id="captionResult" style="margin-top:40px;"></div>
+</section>
+
+
+  <script>
+    // 🔹 Preview uploaded image
+    function previewImage() {
+      const fileInput = document.getElementById("imageInput");
+      const preview = document.getElementById("preview");
+
+      if (fileInput.files && fileInput.files[0]) {
+        const reader = new FileReader();
+        reader.onload = function (e) {
+          preview.src = e.target.result;
+          preview.style.display = "block";
+        };
+        reader.readAsDataURL(fileInput.files[0]);
+      }
+    }
+
+    // 🔹 Track selected mode
+    const modeSelect = document.getElementById("modeSelect");
+    const sectionTitle = document.getElementById("sectionTitle");
+    const actionButton = document.getElementById("actionButton");
+
+    modeSelect.addEventListener("change", () => {
+      const mode = modeSelect.value;
+      if (mode === "image_captioning") {
+        sectionTitle.innerText = "Image Captioning";
+        actionButton.innerText = "Generate Caption";
+      } else {
+        sectionTitle.innerText = "Animal Captioning";
+        actionButton.innerText = "Classify Image";
+      }
+      // Clear previous results
+      document.getElementById("captionResult").innerHTML = "";
+      document.getElementById("preview").style.display = "none";
+      document.getElementById("imageInput").value = "";
+    });
+
+    // 🔹 Handle button click dynamically
+    function handleAction() {
+      const mode = modeSelect.value;
+      if (mode === "image_captioning") {
+        generateCaption();
+      } else {
+        classifyImage();
+      }
+    }
+
+    // 🔹 Image Captioning Function
+    async function generateCaption() {
+      const fileInput = document.getElementById("imageInput");
+      const result = document.getElementById("captionResult");
+
+      if (!fileInput.files.length) {
+        alert("Please upload an image first.");
+        return;
+      }
+
+      const formData = new FormData();
+      formData.append("file", fileInput.files[0]);
+
+      result.innerHTML = "<b>Generating caption...</b>";
+
+      try {
+        const response = await fetch("/api/image-caption", {
+          method: "POST",
+          body: formData
+        });
+
+        const data = await response.json();
+
+        if (data.caption) {
+          result.innerHTML = `<b>${data.caption}</b>`;
+        } else {
+          result.innerHTML = "<b>Error generating caption</b>";
+        }
+
+      } catch (error) {
+        console.error(error);
+        result.innerHTML = "<b>Server error</b>";
+      }
+    }
+
+    // 🔹 Animal Classification Function
+    const API_URL = "https://casemated-hazardously-elvera.ngrok-free.dev";
+
+    async function classifyImage() {
+      const input = document.getElementById("imageInput");
+      const imageResult = document.getElementById("captionResult");
+
+      if (!input.files.length) {
+        alert("Please upload an image");
+        return;
+      }
+
+      const formData = new FormData();
+      formData.append("file", input.files[0]); // Must match FastAPI param
+
+      imageResult.innerHTML = "<p>🔍 Classifying image using Colab GPU...</p>";
+
+      try {
+        const res = await fetch(`${API_URL}/predict`, {
+          method: "POST",
+          body: formData
+        });
+
+        if (!res.ok) {
+          throw new Error("Backend error");
+        }
+
+        const data = await res.json();
+
+        imageResult.innerHTML = `
+          <div style="
+            max-width:600px;
+            margin:20px auto;
+            padding:20px;
+            border-radius:14px;
+            box-shadow:0 10px 30px rgba(0,0,0,0.12);
+          ">
+            <h3>Prediction: It is a ${data.label.toUpperCase()}</h3>
+          </div>
+        `;
+      } catch (err) {
+        console.error(err);
+        imageResult.innerHTML = "<p>❌ Colab backend not reachable.</p>";
+      }
+    }
+  </script>
+
+
+
+    
+    
+  </body> -->
+
+<body>
+  <header class="navbar">
+    <div class="logo">AI NEXUS</div>
+    <nav class="nav-links">
+      <a href="/home">Home</a>
+      <a href="/contact">Contact</a>
+      <a href="/about">About</a>
+    </nav>
+    <div class="profile">
+      <img src="/assets/image4.png" alt="User Profile" />
+    </div>
+  </header>
+
+  <section class="hero">
+    <h1>Unlocking Human Potential<br />With Generative AI.</h1>
+    <p>
+      An Integrated Multimodal AI System<br />
+      for creative image, text, speech generation.
+    </p>
+  </section>
+<section class="chatbox" style="padding: 40px 90px;">
+  <h2 style="font-size:28px; margin-bottom:20px; text-align:center;">NexusGPT</h2>
+
+  <div class="chat-input-wrapper">
+    <textarea
+      id="question"
+      placeholder="Ask NexusGPT…"
+      rows="2"
+    ></textarea>
+
+    <button
+      id="micBtn"
+      onclick="startListening()"
+      title="Speak"
+    >
+      <!-- SVG Mic Icon -->
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+        <path d="M12 14a3 3 0 003-3V5a3 3 0 00-6 0v6a3 3 0 003 3z"
+              stroke="currentColor" stroke-width="1.5"/>
+        <path d="M19 11a7 7 0 01-14 0"
+              stroke="currentColor" stroke-width="1.5"/>
+        <path d="M12 18v3"
+              stroke="currentColor" stroke-width="1.5"/>
+      </svg>
+    </button>
+
+    <button
+      class="send-btn"
+      onclick="sendQuestion()"
+    >
+      Send
+    </button>
+  </div>
+
+  <div id="response" style="margin-top:40px;"></div>
+</section>
+
+
+  <script>
+async function sendQuestion() {
+  const question = document.getElementById("question").value;
+  const responseDiv = document.getElementById("response");
+
+  responseDiv.innerHTML = "<div class='ai-loading'>Generating response...</div>";
+
+  const res = await fetch("/api/chat", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ question })
+  });
+
+  const data = await res.json();
+
+  responseDiv.innerHTML = `
+    <div class="ai-response">
+      ${marked.parse(data.answer)}
+    </div>
+  `;
+}
+</script>
+<script>
+let recognition;
+
+function startListening() {
+  const micBtn = document.getElementById("micBtn");
+
+  const SpeechRecognition =
+    window.SpeechRecognition || window.webkitSpeechRecognition;
+
+  if (!SpeechRecognition) {
+    alert("Speech recognition not supported in this browser.");
+    return;
+  }
+
+  recognition = new SpeechRecognition();
+  recognition.lang = "en-US";
+  recognition.interimResults = false;
+
+  micBtn.classList.add("listening");
+
+  recognition.start();
+
+  recognition.onresult = (event) => {
+    const transcript = event.results[0][0].transcript;
+    document.getElementById("question").value = transcript;
+  };
+
+  recognition.onerror = () => {
+    micBtn.classList.remove("listening");
+  };
+
+  recognition.onend = () => {
+    micBtn.classList.remove("listening");
+  };
+}
+</script>
+
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
+</body>
+
+
+
+  <footer class="footer">
+
+  <div class="footer-top">
+    <div>
+      <div class="footer-logo">AI NEXUS</div>
+      <p class="footer-desc">
+        Building open-source generative AI models for creators,
+        developers, and enterprises worldwide.
+      </p>
+    </div>
+
+    <div class="footer-col">
+      <h4>Products</h4>
+      <a href="#">Image Generation</a>
+      <a href="#">Image Captioning</a>
+      <a href="#">AI News</a>
+  
+      <a href="#">Podcast Q&A</a>
+    </div>
+
+    <div class="footer-col">
+      <h4>Company</h4>
+      <a href="#">About</a>
+      <a href="#">Contacts</a>
+     
+    </div>
+
+    <div class="footer-col">
+      <h4>Social</h4>
+      <a href="#">Facebook</a>
+      <a href="#">Instagram</a>
+      <a href="#">Twitter</a>
+      <a href="#">GitHub</a>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <div>© 2026 AI NEXUS. All rights reserved.</div>
+    <!-- <div>Privacy · Terms · Security</div> -->
+  </div>
+
+</footer>
+
+</html>

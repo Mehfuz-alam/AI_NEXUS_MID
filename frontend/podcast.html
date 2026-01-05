@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Stability AI – Frontend Clone</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Font -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Inter", sans-serif;
+      }
+      body {
+        background: #fff;
+        color: #111;
+      }
+
+      /* NAVBAR */
+      .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 22px 60px;
+      }
+      .logo {
+        font-size: 18px;
+        font-weight: 700;
+      }
+      .nav-links a {
+        margin: 0 14px;
+        text-decoration: none;
+        color: #111;
+        font-size: 14px;
+      }
+      .contact-btn {
+        background: #111;
+        color: #fff;
+        border: none;
+        padding: 10px 18px;
+        border-radius: 8px;
+        cursor: pointer;
+      }
+
+      /* HERO */
+      .hero {
+        text-align: center;
+        margin-top: 90px;
+      }
+      .hero h1 {
+        font-size: 48px;
+        font-weight: 700;
+        line-height: 1.2;
+      }
+      .hero p {
+        margin-top: 22px;
+        color: #555;
+        font-size: 16px;
+      }
+
+      /* TABS */
+      .tabs {
+        margin-top: 40px;
+      }
+      .tabs button {
+        padding: 8px 16px;
+        margin: 0 5px;
+        border-radius: 20px;
+        border: 1px solid #ddd;
+        background: #fff;
+        cursor: pointer;
+        font-size: 13px;
+      }
+      .tabs .active {
+        background: #111;
+        color: #fff;
+      }
+      .tabs .new::after {
+        content: "NEW";
+        background: #6c5ce7;
+        color: #fff;
+        font-size: 10px;
+        padding: 2px 6px;
+        margin-left: 6px;
+        border-radius: 10px;
+      }
+
+      /* CONTENT */
+      .content {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 70px;
+        padding: 100px 90px;
+        align-items: center;
+      }
+      .left h2 {
+        font-size: 32px;
+        margin-bottom: 20px;
+      }
+      .left p {
+        color: #555;
+        font-size: 15px;
+        line-height: 1.6;
+      }
+      .buttons {
+        margin-top: 30px;
+      }
+      .primary {
+        background: #111;
+        color: #fff;
+        border: none;
+        padding: 12px 18px;
+        border-radius: 10px;
+        margin-right: 12px;
+        cursor: pointer;
+      }
+      .secondary {
+        background: none;
+        border: none;
+        font-weight: 500;
+        cursor: pointer;
+      }
+
+      /* IMAGE GRID */
+      .right-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
+      }
+      .right-grid img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+        border-radius: 14px;
+      }
+
+      /* RESPONSIVE */
+      @media (max-width: 900px) {
+        .content {
+          grid-template-columns: 1fr;
+          padding: 60px 30px;
+        }
+        .hero h1 {
+          font-size: 36px;
+        }
+        .navbar {
+          padding: 20px 30px;
+        }
+
+
+      
+}
+
+        /* FOOTER */
+.footer{
+  border-top:1px solid #222;
+  padding:60px 90px 30px;
+  background:#0b0b0b;   /* professional black */
+  color:#ffffff;
+}
+.footer-top{
+  display:grid;
+  grid-template-columns:2fr 1fr 1fr 1fr;
+  gap:40px;
+}
+.footer-logo{
+  font-size:20px;
+  font-weight:700;
+  margin-bottom:14px;
+}
+.footer-desc{
+  font-size:14px;
+  color:#555;
+  line-height:1.6;
+  max-width:340px;
+}
+.footer-col h4{
+  font-size:14px;
+  font-weight:600;
+  margin-bottom:16px;
+}
+.footer-col a{
+  display:block;
+  text-decoration:none;
+  font-size:14px;
+  color:#555;
+  margin-bottom:10px;
+}
+.footer-col a:hover{
+  color:#111;
+}
+.footer-bottom{
+  margin-top:50px;
+  padding-top:20px;
+  border-top:1px solid #eee;
+  display:flex;
+  justify-content:space-between;
+  font-size:13px;
+  color:#777;
+}
+
+/* FOOTER RESPONSIVE */
+@media(max-width:900px){
+  .footer{
+    padding:50px 30px 20px;
+  }
+  .footer-top{
+    grid-template-columns:1fr;
+    gap:30px;
+  }
+  .footer-bottom{
+    flex-direction:column;
+    gap:10px;
+    text-align:center;
+  }}
+  /* PROFILE AVATAR */
+.profile {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  overflow: hidden;
+  cursor: pointer;
+  border: 2px solid #111;
+}
+
+.profile img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.profile:hover {
+  transform: scale(1.05);
+  transition: 0.2s ease;
+}
+
+/* PODCAST */
+.podcast-section {
+  padding: 80px 90px;
+  text-align: center;
+}
+
+.podcast-section h2 {
+  font-size: 34px;
+  margin-bottom: 12px;
+}
+
+.subtitle {
+  color: #666;
+  font-size: 15px;
+  margin-bottom: 40px;
+}
+
+/* CARDS */
+.card {
+  background: #fff;
+  border: 1px solid #eee;
+  border-radius: 14px;
+  padding: 24px;
+  max-width: 900px;
+  margin: 30px auto;
+  text-align: left;
+}
+
+/* UPLOAD */
+.upload-card {
+  display: flex;
+  gap: 14px;
+  justify-content: space-between;
+}
+
+.upload-card input {
+  flex: 1;
+  padding: 12px;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+}
+
+.upload-card button {
+  background: #111;
+  color: #fff;
+  border: none;
+  padding: 12px 22px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+/* TRANSCRIPTION */
+.transcription-box {
+  max-height: 260px;
+  overflow-y: auto;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #444;
+}
+
+/* Q&A */
+.qa-box {
+  margin-top: 20px;
+  display: flex;
+  gap: 12px;
+}
+
+.qa-box input {
+  flex: 1;
+  padding: 12px;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+}
+
+.qa-box button {
+  background: #111;
+  color: #fff;
+  border: none;
+  padding: 12px 18px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+/* ANSWER */
+.answer-card {
+  margin-top: 20px;
+  background: #f9f9f9;
+  border-left: 4px solid #111;
+  padding: 16px;
+  border-radius: 10px;
+  font-size: 14px;
+  line-height: 1.6;
+}
+/* ============================= */
+/* PODCAST RESPONSIVE FIX */
+/* ============================= */
+
+@media (max-width: 1024px) {
+  .podcast-section {
+    padding: 70px 50px;
+  }
+
+  .card {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .podcast-section {
+    padding: 60px 24px;
+  }
+
+  .podcast-section h2 {
+    font-size: 28px;
+  }
+
+  .upload-card {
+    flex-direction: column;
+  }
+
+  .upload-card button {
+    width: 100%;
+  }
+
+  .qa-box {
+    flex-direction: column;
+  }
+
+  .qa-box button {
+    width: 100%;
+  }
+
+  .transcription-box {
+    max-height: 220px;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .podcast-section h2 {
+    font-size: 24px;
+  }
+
+  .subtitle {
+    font-size: 14px;
+  }
+
+  .card {
+    padding: 18px;
+  }
+
+  .answer-card {
+    font-size: 13px;
+  }
+}
+
+    </style>
+  </head>
+
+  <body>
+    <header class="navbar">
+      <div class="logo">AI NEXUS</div>
+
+      <nav class="nav-links">
+        <a href="/home">Home</a>
+        <!-- <a href="#">Applications</a>
+        <a href="#">Deployment</a> -->
+        <a href="/contact">Contact</a>
+        <a href="/about">About</a>
+      </nav>
+
+      <div class="profile">
+  <img src="./assets/image4.png" alt="User Profile" />
+</div>
+    </header>
+
+    <section class="hero">
+      <h1>Unlocking Human Potential<br />With Generative AI.</h1>
+      <p>
+        An Integrated Multimodal AI System<br />
+        for creative image, text, speech generation.
+      </p>
+
+    </section>
+<section class="podcast-section">
+  <h2>Podcast Intelligence</h2>
+  <p class="subtitle">
+    Upload an audio file, get instant transcription, and ask questions from the content.
+  </p>
+
+  <!-- Upload Card -->
+  <div class="card upload-card">
+    <input type="file" id="audioInput" accept=".mp3,audio/*" />
+    <button onclick="convertAudioToText()">Transcribe Audio</button>
+  </div>
+
+  <!-- Results -->
+  <div id="audioTextResult"></div>
+</section>
+
+<script>
+const API_BASE = "http://localhost:8000";
+let transcriptionText = "";
+
+async function convertAudioToText() {
+  const fileInput = document.getElementById("audioInput");
+  const resultDiv = document.getElementById("audioTextResult");
+
+  if (!fileInput.files.length) {
+    alert("Please upload an audio file");
+    return;
+  }
+
+  const formData = new FormData();
+  formData.append("file", fileInput.files[0]);
+
+  resultDiv.innerHTML = `
+    <div class="card">
+      <p>⏳ Transcribing audio...</p>
+    </div>
+  `;
+
+  const res = await fetch(`${API_BASE}/api/podcast/transcribe`, {
+    method: "POST",
+    body: formData
+  });
+
+  const data = await res.json();
+  transcriptionText = data.transcription;
+
+  resultDiv.innerHTML = `
+    <div class="card">
+      <h3>Transcription</h3>
+      <div class="transcription-box">${transcriptionText}</div>
+
+      <div class="qa-box">
+        <input id="questionInput" placeholder="Ask a question from this podcast..." />
+        <button onclick="askQuestion()">Ask</button>
+      </div>
+
+      <div id="answerBox"></div>
+    </div>
+  `;
+}
+
+async function askQuestion() {
+  const question = document.getElementById("questionInput").value;
+  const answerBox = document.getElementById("answerBox");
+
+  if (!question.trim()) return;
+
+  answerBox.innerHTML = `<p>🤖 Thinking...</p>`;
+
+  const res = await fetch(`${API_BASE}/api/podcast/ask`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ question })
+  });
+
+  const data = await res.json();
+
+  answerBox.innerHTML = `
+    <div class="answer-card">
+      <strong>Answer</strong><br /><br />
+      ${data.answer}
+    </div>
+  `;
+}
+</script>
+
+
+    
+  </body>
+  <footer class="footer">
+
+  <div class="footer-top">
+    <div>
+      <div class="footer-logo">AI NEXUS</div>
+      <p class="footer-desc">
+        Building open-source generative AI models for creators,
+        developers, and enterprises worldwide.
+      </p>
+    </div>
+
+    <div class="footer-col">
+      <h4>Products</h4>
+      <a href="#">Image Generation</a>
+      <a href="#">Image Captioning</a>
+      <a href="#">AI News</a>
+  
+      <a href="#">Podcast Q&A</a>
+    </div>
+
+    <div class="footer-col">
+      <h4>Company</h4>
+      <a href="#">About</a>
+      <a href="#">Contacts</a>
+     
+    </div>
+
+    <div class="footer-col">
+      <h4>Social</h4>
+      <a href="#">Facebook</a>
+      <a href="#">Instagram</a>
+      <a href="#">Twitter</a>
+      <a href="#">GitHub</a>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <div>© 2026 AI NEXUS. All rights reserved.</div>
+    <!-- <div>Privacy · Terms · Security</div> -->
+  </div>
+
+</footer>
+
+</html>

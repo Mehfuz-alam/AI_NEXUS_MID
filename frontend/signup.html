@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>UISplash Login</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    *{
+      box-sizing:border-box;
+      margin:0;
+      padding:0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    }
+
+    body{
+      min-height:100vh;
+      display:flex;
+      background:#ffffff;
+    }
+
+    .left{
+      width:40%;
+      background:#0f0f10;
+      color:#ffffff;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      padding:40px;
+    }
+
+    .left-inner{
+      max-width:320px;
+    }
+
+    .left h1{
+      font-size:40px;
+      margin-bottom:16px;
+      font-weight:700;
+    }
+
+    .left p{
+      line-height:1.6;
+      font-size:16px;
+      color:#e6e6e6;
+    }
+
+    .right{
+      width:60%;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      padding:40px;
+    }
+
+    .card{
+      width:100%;
+      max-width:420px;
+    }
+
+    .card h2{
+      font-size:28px;
+      font-weight:700;
+      margin-bottom:6px;
+    }
+
+    .top-text{
+      margin-bottom:22px;
+      font-size:14px;
+      color:#666;
+    }
+
+    .top-text a{
+      color:#000;
+      text-decoration:none;
+      font-weight:600;
+    }
+
+    .social-btn{
+      width:100%;
+      border:1px solid #ddd;
+      background:#fff;
+      padding:10px 14px;
+      border-radius:6px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-size:14px;
+      cursor:pointer;
+      margin-bottom:10px;
+      transition:background .15s;
+    }
+
+    .social-btn:hover{
+      background:#fafafa;
+    }
+
+    .social-btn img{
+      width:18px;
+      height:18px;
+      margin-right:10px;
+    }
+
+    .divider{
+      text-align:center;
+      margin:18px 0;
+      position:relative;
+      color:#999;
+      font-size:13px;
+    }
+
+    .divider:before,
+    .divider:after{
+      content:"";
+      position:absolute;
+      top:50%;
+      width:40%;
+      height:1px;
+      background:#eee;
+    }
+
+    .divider:before{ left:0; }
+    .divider:after{ right:0; }
+
+    label{
+      font-size:13px;
+      color:#555;
+      display:block;
+      margin-bottom:6px;
+    }
+
+    input[type="email"],
+    input[type="password"]{
+      width:100%;
+      padding:10px 12px;
+      border:1px solid #ddd;
+      border-radius:6px;
+      font-size:14px;
+      margin-bottom:14px;
+    }
+
+    .password-row{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+    }
+
+    .password-row a{
+      font-size:12px;
+      color:#666;
+      text-decoration:none;
+    }
+
+    .remember{
+      display:flex;
+      align-items:center;
+      font-size:13px;
+      margin-bottom:16px;
+      color:#555;
+    }
+
+    .remember input{
+      margin-right:6px;
+    }
+
+    .login-btn{
+      width:100%;
+      padding:10px 14px;
+      border:none;
+      border-radius:6px;
+      background:#0f0f10;
+      color:#fff;
+      font-size:14px;
+      cursor:pointer;
+      transition:opacity .15s;
+    }
+
+    .login-btn:hover{
+      opacity:.9;
+    }
+
+    @media(max-width:900px){
+      body{
+        flex-direction:column;
+      }
+      .left,
+      .right{
+        width:100%;
+      }
+      .left{
+        padding:60px 30px;
+      }
+      .right{
+        padding:30px 20px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="left">
+    <div class="left-inner">
+      <h1>AI NEXUS</h1>
+      <p>An Integrated Multimodal AI System for creative image, text, speech generation.</p>
+    </div>
+  </div>
+
+  <div class="right">
+    <div class="card">
+      <h2>Create your account</h2>
+      <p class="top-text">Already have an account? <a href="/sign-in">Login</a></p>
+
+      <!-- GOOGLE SIGNUP -->
+      <a href="/auth/google">
+        <button type="button" class="social-btn">
+          <img src="https://www.svgrepo.com/show/303108/google-icon-logo.svg">
+          Sign up with Google
+        </button>
+      </a>
+
+      <!-- FACEBOOK SIGNUP -->
+      <a href="/auth/facebook">
+        <button type="button" class="social-btn">
+          <img src="https://www.svgrepo.com/show/475647/facebook-color.svg">
+          Sign up with Facebook
+        </button>
+      </a>
+
+      <div class="divider">OR</div>
+
+      <!-- SIGNUP FORM -->
+      <form method="post" action="/signup">
+
+        <label>Email</label>
+        <input type="email" name="email" required>
+
+        <label>Password</label>
+        <input type="password" name="password" required>
+
+        <label>Confirm Password</label>
+        <input type="password" name="confirm_password" required>
+
+        <label class="remember">
+          <input type="checkbox" name="remember"> Remember me
+        </label>
+
+        <button class="login-btn">Sign Up</button>
+      </form>
+
+    </div>
+  </div>
+</body>
+</html>
