@@ -1,7 +1,8 @@
 from dotenv import load_dotenv
 load_dotenv()
 from starlette.middleware.sessions import SessionMiddleware
-
+import random
+from fastapi import Request
 from fastapi import FastAPI, UploadFile, File
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
@@ -11,7 +12,7 @@ from pydantic import BaseModel
 
 from transformers import BlipProcessor, BlipForConditionalGeneration
 from PIL import Image
-
+from authlib.integrations.base_client.errors import MismatchingStateError
 from ai_news.agent_with_tools import create_agent, get_news_repsonse
 import os
 
@@ -54,7 +55,8 @@ os.environ["LANGCHAIN_API_KEY"] = os.getenv("LANGCHAIN_API_KEY")
 #------------------------------
 Base.metadata.create_all(bind=engine)
 
-
+# OTP storage (in-memory, resets on server restart)
+OTP_STORE = {}
 
 
 def get_db():
@@ -95,6 +97,7 @@ app = FastAPI(title="AI-NEXUS API")
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
+    allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
@@ -103,6 +106,8 @@ app.add_middleware(
 app.add_middleware(
     SessionMiddleware,
     secret_key=os.getenv("SESSION_SECRET"),  
+    session_cookie="session",
+    same_site="lax",
     https_only=False  # set True in production
 )
 
@@ -452,60 +457,133 @@ def login_user(
    return RedirectResponse(url="/home", status_code=302)
 
 # ---------- FORGOT PASSWORD ----------
+@app.get("/forgot-password", response_class=HTMLResponse)
+def forgot_password_page(request: Request):
+    return templates.TemplateResponse("send_email_otp.html", {"request": request})
 
-@app.post("/forgot-password")
-def forgot_password(email: str = Form(...), db: Session = Depends(get_db)):
-    user = db.query(User).filter_by(email=email).first()
+@app.post("/forgot-password/send-otp")
+def send_otp(request: Request, email: str = Form(...), db: Session = Depends(get_db)):
+    user = db.query(User).filter_by(email=email, provider="local").first()
     if not user:
-        return HTMLResponse("No account found", 404)
+        return HTMLResponse("No local account found", status_code=404)
 
-    token = create_reset_token(email)
-    reset_link = f"http://localhost:8000/reset-password/{token}"
+    # Generate 6-digit OTP
+    otp = str(random.randint(100000, 999999))
+    OTP_STORE[email] = otp
 
-    send_reset_email(email, reset_link)
-    return HTMLResponse("Reset link sent. Check console.")
+    # Send OTP email
+    send_reset_email(email, otp)
+
+    # Store email in session for verification
+    request.session["reset_email"] = email
+
+    return RedirectResponse("/verify-otp", status_code=302)
 
 
-@app.get("/reset-password/{token}", response_class=HTMLResponse)
-def reset_form(request: Request, token: str):
-    return templates.TemplateResponse(
-        "reset_password.html", {"request": request, "token": token}
+@app.get("/verify-otp", response_class=HTMLResponse)
+def verify_otp_page(request: Request):
+    return templates.TemplateResponse("verify_otp.html", {"request": request})
+
+@app.post("/verify-otp")
+def verify_otp(request: Request, otp: str = Form(...)):
+    email = request.session.get("reset_email")
+    if not email:
+        return HTMLResponse("Session expired. Please try again.", status_code=400)
+
+    stored_otp = OTP_STORE.get(email)
+    if not stored_otp or stored_otp != otp:
+        return HTMLResponse("Invalid OTP. Try again.", status_code=400)
+
+    # OTP valid, proceed to change password
+    request.session["otp_verified"] = True
+    return RedirectResponse("/change-password", status_code=302)
+
+@app.get("/change-password", response_class=HTMLResponse)
+def change_password_page(request: Request):
+    if not request.session.get("otp_verified"):
+        return HTMLResponse("Unauthorized access", status_code=401)
+    return templates.TemplateResponse("change_password.html", {"request": request})
+
+@app.post("/change-password")
+def change_password(
+    request: Request,
+    password: str = Form(...),
+    confirm_password: str = Form(...),
+    db: Session = Depends(get_db),
+):
+    if not request.session.get("otp_verified"):
+        return HTMLResponse("Unauthorized access", status_code=401)
+
+    email = request.session.get("reset_email")
+    if not email:
+        return HTMLResponse("Session expired", status_code=400)
+
+    if password != confirm_password:
+        return HTMLResponse("Passwords do not match", status_code=400)
+
+    user = db.query(User).filter_by(email=email, provider="local").first()
+    if not user:
+        return HTMLResponse("User not found", status_code=404)
+
+    user.hashed_password = hash_password(password)
+    db.commit()
+
+    # Clear OTP session
+    request.session.pop("otp_verified", None)
+    request.session.pop("reset_email", None)
+    OTP_STORE.pop(email, None)
+
+    return RedirectResponse("/sign-in", status_code=302)
+
+# ---------- GOOGLE OAUTH ----------
+@app.get("/auth/google")
+async def google_login(request: Request):
+    # Hardcode redirect URI to match Google OAuth
+    redirect_uri = "http://localhost:8000/auth/google/callback"
+    
+    # Debug: show session before redirect
+    print("SESSION BEFORE REDIRECT:", request.session)
+    
+    return await oauth.google.authorize_redirect(
+        request,
+        redirect_uri
     )
 
 
-@app.post("/reset-password/{token}")
-def reset_password(
-    token: str,
-    password: str = Form(...),
-    db: Session = Depends(get_db),
-):
-    email = verify_reset_token(token)
-    user = db.query(User).filter_by(email=email).first()
-    user.hashed_password = hash_password(password)
-    db.commit()
-    return RedirectResponse("/sign-in", 302)
 
 
-# ---------- GOOGLE OAUTH ----------
 
-@app.get("/auth/google")
-async def google_login(request: Request):
-    return await oauth.google.authorize_redirect(request, "http://localhost:8000/auth/google/callback")
-
-@app.get("/auth/google/callback")
+@app.get("/auth/google/callback", name="google_callback")
 async def google_callback(request: Request, db: Session = Depends(get_db)):
-    token = await oauth.google.authorize_access_token(request)
+    # Debug: show session on callback
+    print("SESSION IN CALLBACK:", request.session)
+    
+    try:
+        token = await oauth.google.authorize_access_token(request)
+    except MismatchingStateError:
+        print("STATE MISMATCH DETECTED", request.session)
+        return HTMLResponse(
+            "OAuth session expired or invalid. Please try again.",
+            status_code=400
+        )
+
     user_info = token["userinfo"]
-
     email = user_info["email"]
-    user = db.query(User).filter_by(email=email).first()
 
+    # Check if user exists
+    user = db.query(User).filter(User.email == email).first()
     if not user:
         user = User(email=email, provider="google")
         db.add(user)
         db.commit()
 
-    return RedirectResponse("/home")
+    # Save user in session
+    request.session["user"] = email
+
+    print("SESSION AFTER LOGIN:", request.session)
+
+    return RedirectResponse("/home", status_code=302)
+
 
 
 # ---------- FACEBOOK OAUTH ----------

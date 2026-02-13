@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>Stability AI – Frontend Clone</title>
+    <title>AI Nexus</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <!-- Font -->
@@ -465,7 +465,7 @@
         <a href="/about">About</a>
       </nav>
 
-      <a href="sign_in.html"><button class="contact-btn">Login</button></a>
+      <a href="/sign-in"><button class="contact-btn">Login</button></a>
     </header>
 
     <section class="hero">
@@ -489,26 +489,26 @@
         message, and we'll respond within 24 hours.
       </p>
 
-      <form class="contact-form">
-        <div class="form-row">
-          <input type="text" placeholder="First name" />
-          <input type="text" placeholder="Last name" />
-        </div>
+      <form class="contact-form" method="POST" action="/contact">
+    <div class="form-row">
+        <input type="text" name="first_name" placeholder="First name" required />
+        <input type="text" name="last_name" placeholder="Last name" required />
+    </div>
 
-        <input type="email" placeholder="Email address" />
-        <textarea placeholder="Leave us message"></textarea>
+    <input type="email" name="email" placeholder="Email address" required />
+    <textarea name="message" placeholder="Leave us message" required></textarea>
 
-        <label class="custom-checkbox">
-  <input type="checkbox" />
-  <span class="checkmark"></span>
-  <span class="checkbox-text">
-    I agree to our friendly <a href="#">privacy policy</a>
-  </span>
-</label>
+    <label class="custom-checkbox">
+        <input type="checkbox" required />
+        <span class="checkmark"></span>
+        <span class="checkbox-text">
+            I agree to our friendly <a href="#">privacy policy</a>
+        </span>
+    </label>
 
-<button type="submit" class="submit-btn">Send Message</button>
+    <button type="submit" class="submit-btn">Send Message</button>
+</form>
 
-      </form>
     </div>
 
     <!-- RIGHT SIDE -->

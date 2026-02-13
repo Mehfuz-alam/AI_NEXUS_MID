@@ -24,10 +24,7 @@ def create_agent():
             )   
         )
 
-
-
 ## Print the response in the console
-
 # agent.print_response("Tell me about a breaking news story from New York.", stream=True)
 
 

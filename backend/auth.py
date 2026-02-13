@@ -1,21 +1,26 @@
 import hashlib
 from passlib.context import CryptContext
-from itsdangerous import URLSafeTimedSerializer
+from itsdangerous import (
+    URLSafeTimedSerializer,
+    BadSignature,
+    SignatureExpired,
+)
+
+SECRET_KEY = "CHANGE_THIS_SECRET_KEY"
+RESET_SALT = "password-reset"
 
 pwd_context = CryptContext(
     schemes=["bcrypt"],
     deprecated="auto"
 )
 
-serializer = URLSafeTimedSerializer("CHANGE_THIS_SECRET_KEY")
+serializer = URLSafeTimedSerializer(SECRET_KEY)
 
 
 def _normalize(value: str) -> str:
     """
-    Ensures bcrypt NEVER sees >72 bytes
+    Ensures bcrypt never receives >72 bytes
     """
-    if not isinstance(value, str):
-        value = str(value)
     return hashlib.sha256(value.encode("utf-8")).hexdigest()
 
 
@@ -28,8 +33,15 @@ def verify_password(password: str, hashed_password: str) -> bool:
 
 
 def create_reset_token(email: str) -> str:
-    return serializer.dumps(email)
+    return serializer.dumps(email, salt=RESET_SALT)
 
 
-def verify_reset_token(token: str, max_age: int = 3600) -> str:
-    return serializer.loads(token, max_age=max_age)
+def verify_reset_token(token: str, max_age: int = 3600) -> str | None:
+    try:
+        return serializer.loads(
+            token,
+            salt=RESET_SALT,
+            max_age=max_age
+        )
+    except (BadSignature, SignatureExpired):
+        return None

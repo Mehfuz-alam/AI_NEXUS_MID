@@ -26,3 +26,4 @@ streamlit
 moviepy==1.0.3
 langchain-core 
 gTTS
+email-validator
