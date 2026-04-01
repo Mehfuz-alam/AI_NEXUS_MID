@@ -45,7 +45,8 @@ AI NEXUS integrates **6 fully functional AI modules** into one unified platform:
 ### Image Captioning — BLIP Vision Model
 > Upload any image and get an instant AI-generated description.
 
-![Image Captioning](screenshot_captioning.jpg)
+<img width="1069" height="1406" alt="image" src="https://github.com/user-attachments/assets/72d29043-5930-4717-bad0-b3c55d7eecf6" />
+
 
 ---
 
@@ -60,21 +61,24 @@ AI NEXUS integrates **6 fully functional AI modules** into one unified platform:
 ### AI News Generator — Agentic AI + TTS + AI Anchor
 > Enter any topic. Get AI-written news articles, a voice narration, and a video AI anchor broadcast — all generated automatically.
 
-![AI News](screenshot_news.jpg)
+<img width="1009" height="1248" alt="image" src="https://github.com/user-attachments/assets/ab8ede8c-3338-427d-b6ca-874697dd2956" />
+
 
 ---
 
 ### NexusGPT — Conversational AI
 > LangChain-powered local LLM assistant. Handles code generation, explanations, and multi-turn conversations.
 
-![NexusGPT](screenshot_nexusgpt.jpg)
+<img width="925" height="1608" alt="image" src="https://github.com/user-attachments/assets/d33d9529-ee5a-43ab-bc91-e9a101bd76ad" />
+
 
 ---
 
 ### Podcast Intelligence — Whisper + RAG
 > Upload any audio file, get a full transcription, then ask questions grounded in the spoken content via RAG.
 
-![Podcast Intelligence](screenshot_podcast.jpg)
+<img width="1079" height="1400" alt="image" src="https://github.com/user-attachments/assets/7a4f9946-a60a-4294-8ddb-6f868ae62c80" />
+
 
 ---
 
@@ -83,7 +87,8 @@ AI NEXUS integrates **6 fully functional AI modules** into one unified platform:
 ### Activity Diagram
 > Complete request lifecycle — from user input through FastAPI routing, AI model invocation, optional tool use (web search / Pinecone), optional media output (TTS / video), and final response delivery. All error paths surface gracefully to the user.
 
-![Activity Diagram](activity_diagram.jpg)
+<img width="1080" height="1600" alt="image" src="https://github.com/user-attachments/assets/6247540c-5f3b-489c-bfe3-b58b784db323" />
+
 
 **Three input paths:**
 - **Image Upload** → routed to the Image module (captioning or classification)
@@ -95,7 +100,8 @@ AI NEXUS integrates **6 fully functional AI modules** into one unified platform:
 ### Class Diagram
 > Service-oriented architecture with clear separation between the FastAPI app, AI service classes, agent tools, and data stores.
 
-![Class Diagram](class_diagram.jpg)
+<img width="1080" height="1271" alt="image" src="https://github.com/user-attachments/assets/f9a2d076-653b-4f35-ad38-fa7561163554" />
+
 
 **Key classes:**
 
