@@ -52,7 +52,8 @@ AI NEXUS integrates **6 fully functional AI modules** into one unified platform:
 ### Image Generation — Stable Diffusion XL
 > Type a prompt, select a model, and generate photorealistic images in seconds.
 
-![Image Generation](screenshot_image_gen.jpg)
+<img width="1063" height="1421" alt="image" src="https://github.com/user-attachments/assets/1ed681fb-4927-4481-bbf3-09949da9d4db" />
+
 
 ---
 
